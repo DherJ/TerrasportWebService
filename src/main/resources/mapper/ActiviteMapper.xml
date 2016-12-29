@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.ActiviteDao">
+
+	<!-- ********** -->
+    <!-- RESULT MAP -->
+    <!-- ********** -->
+
+    <!-- ResultMap A : Activite -->
+	<resultMap id="Activite_ResultMap" type="com.terrasport.webservice.core.model.Activite">
+		<id property="id" column="act_id" />
+		<result property="jour" column="act_jour" />
+	</resultMap>
+	
+
+
+	<!-- ************** -->
+	<!-- SQL SELECT ALL -->
+	<!-- ************** -->
+
+	<!-- ResultMap A -->
+<!-- 	<sql id="select_Les_Activites"> -->
+<!--       SELECT act_id, -->
+<!--              act_jour, -->
+<!--              act_valeur_mille, -->
+<!--              act_id_cra, -->
+<!--              act_id_odm, -->
+<!--              act_id_bdc, -->
+<!--              act_id_soc, -->
+<!--              cra_mois, -->
+<!--              cra_annee, -->
+<!--              cra_id_eta -->
+<!--       FROM   ACTIVITES INNER JOIN RAPPORTS_ACTIVITES ON ( act_id_cra = cra_id ) INNER JOIN CONSULTANTS ON ( cra_id_con = con_id OR cra_id_col = con_id_col ) -->
+<!--       WHERE  ((#{ID_SOCIETE_CONNECTE}::integer IS NULL) OR (con_id_soc = #{ID_SOCIETE_CONNECTE} OR act_id_soc = #{ID_SOCIETE_CONNECTE}))  -->
+<!-- 	</sql> -->
+
+    
+<!-- 	<select id="getPourRapportActivite" resultMap="Activite_ResultMap"> -->
+<!-- 		<include refid="select_Les_Activites"/> -->
+<!-- 		AND act_id_cra = #{idRapportActivite} -->
+<!-- 		ORDER BY act_jour -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="getCompletPourRapportActivite" resultMap="ActiviteComplet_ResultMap"> -->
+<!-- 		<include refid="select_Les_Activites"/> -->
+<!-- 		AND act_id_cra = #{idRapportActivite} -->
+<!-- 		ORDER BY act_jour -->
+<!-- 	</select> -->
+
+<!-- 	<select id="getPourOrdreMission" resultMap="Activite_ResultMap"> -->
+<!-- 		<include refid="select_Les_Activites"/> -->
+<!-- 		AND act_id_odm = #{idOrdreMission} -->
+<!-- 	</select> -->
+
+<!-- 	<select id="getPourBonCommande" resultMap="Activite_ResultMap"> -->
+<!-- 		<include refid="select_Les_Activites"/> -->
+<!-- 		AND act_id_bdc = #{idBonCommande} -->
+<!-- 	</select> -->
+
+<!-- 	<select id="getPourOrdresMissionsEtBonsCommandes" parameterType="List" resultMap="Activite_ResultMap"> -->
+<!-- 		<if test="(ordresMissions != null and ordresMissions.size() > 0  )  or ( bonsCommandes != null and bonsCommandes.size() > 0)"> -->
+<!--     		<include refid="select_Les_Activites"/> -->
+<!-- 			<trim prefix="AND" prefixOverrides="OR"> -->
+<!-- 				<if test="ordresMissions != null and ordresMissions.size() > 0"> -->
+<!-- 	    			( act_id_odm IN <foreach collection="ordresMissions" item="ordreMission" open="(" close=")" separator=","> #{ordreMission.id} </foreach> ) -->
+<!-- 	    		</if> -->
+<!-- 	    		<if test="bonsCommandes != null and bonsCommandes.size() > 0"> -->
+<!-- 	    			OR ( act_id_bdc IN <foreach collection="bonsCommandes" item="bonCommande" open="(" close=")" separator=","> #{bonCommande.id} </foreach> ) -->
+<!-- 	    		</if> -->
+<!-- 			</trim> -->
+<!--     	</if> -->
+<!-- 	</select> -->
+
+<!--     <select id="getPourOrdreMissionOuBonCommandeEnDehorsDesDates" resultMap="Activite_ResultMap"> -->
+<!--         <if test="(idOM == null and idBDC != null) or (idOM != null and idBDC == null)"> -->
+<!-- 			<include refid="select_Les_Activites"/> -->
+<!-- 			AND -->
+<!-- 			<if test="idOM != null"> -->
+<!-- 				act_id_odm = #{idOM} AND -->
+<!-- 			</if> -->
+<!-- 			<if test="idBDC != null"> -->
+<!-- 				act_id_bdc = #{idBDC} AND -->
+<!-- 			</if> -->
+<!-- 			TO_DATE(format('%s-%s-%s',cra_annee,cra_mois, act_jour), 'yyyy-MM-dd') NOT BETWEEN #{dateDebut}::DATE AND #{dateFin}::DATE -->
+<!--         </if> -->
+<!--     </select> -->
+
+
+<!-- 	<insert id="sauvegarder" parameterType="Activite" useGeneratedKeys="true" keyColumn="act_id" keyProperty="activite.id"> -->
+<!--       INSERT INTO ACTIVITES -->
+<!--                   (act_jour, -->
+<!--                    act_valeur_mille, -->
+<!--                    act_id_cra, -->
+<!--                    act_id_odm, -->
+<!--                    act_id_bdc, -->
+<!--                    act_id_soc, -->
+                   
+<!--                    login_creation, -->
+<!--                    date_creation, -->
+<!--                    login_modification, -->
+<!--                    date_modification) -->
+                   
+<!--       VALUES      ( #{activite.jour}, -->
+<!--                     #{activite.valeurMille}, -->
+<!--                     #{activite.rapportActivite.id}, -->
+<!--                     #{activite.ordreMission.id}, -->
+<!--                    	(SELECT COALESCE( -->
+<!-- 						(SELECT bdc_id  -->
+<!-- 						FROM ordres_missions  -->
+<!-- 							INNER JOIN commandes ON ( cmd_id = odm_id_cmd )  -->
+<!-- 							INNER JOIN bons_commandes ON ( bdc_id_gen_cmd = cmd_id )  -->
+<!-- 						WHERE odm_id = #{activite.ordreMission.id}) -->
+<!-- 						,  #{activite.bonCommande.id})), -->
+<!-- 	                (SELECT COALESCE( -->
+<!-- 						(SELECT bdc.cloisonnement_id_soc  -->
+<!-- 						FROM ordres_missions  -->
+<!-- 							INNER JOIN commandes ON ( cmd_id = odm_id_cmd )  -->
+<!-- 							INNER JOIN bons_commandes bdc ON ( bdc.bdc_id_gen_cmd = cmd_id )  -->
+<!-- 						WHERE odm_id = #{activite.ordreMission.id}) -->
+<!-- 						,  #{ID_SOCIETE_CONNECTE})), -->
+<!--                     #{LOGIN_UTILISATEUR_CONNECTE}, -->
+<!--                     CURRENT_TIMESTAMP, -->
+<!--                     #{LOGIN_UTILISATEUR_CONNECTE}, -->
+<!--                     CURRENT_TIMESTAMP );  -->
+<!-- 	</insert> -->
+
+
+<!-- 	<update id="modifier" parameterType="List"> -->
+<!-- 		<if test="activites != null and activites.size() > 0"> -->
+<!-- 			<foreach collection="activites" item="activite" > -->
+<!--                   UPDATE ACTIVITES -->
+<!--                   SET    act_valeur_mille = #{activite.valeurMille}, -->
+<!--                          login_modification = #{LOGIN_UTILISATEUR_CONNECTE}, -->
+<!--                          date_modification = CURRENT_TIMESTAMP -->
+<!--                   WHERE  act_id = #{activite.id};  -->
+<!-- 			</foreach> -->
+<!-- 		</if> -->
+<!-- 	</update> -->
+
+<!-- 	<update id="supprimer" parameterType="List"> -->
+<!-- 		<if test="activites != null and activites.size() > 0"> -->
+<!--             UPDATE ACTIVITES -->
+<!--             SET    a_supprimer = TRUE, -->
+<!--                    login_modification = #{LOGIN_UTILISATEUR_CONNECTE}, -->
+<!--                    date_modification = CURRENT_TIMESTAMP -->
+<!--             WHERE  act_id IN  -->
+<!--                         <foreach collection="activites" item="activite" open="(" close=")" separator=","> -->
+<!--                               #{activite.id} -->
+<!--                         </foreach> -->
+<!-- 		</if> -->
+<!-- 	</update> -->
+</mapper>

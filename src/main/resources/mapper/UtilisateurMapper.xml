@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.UtilisateurDao">
+
+	<!-- ********** -->
+	<!-- RESULT MAP -->
+	<!-- ********** -->
+	<resultMap id="Utilisateur_ResultMap"
+		type="com.terrasport.webservice.core.model.Utilisateur">
+		<id property="id" column="user_id" />
+		<result property="nom" column="user_nom" />
+		<result property="prenom" column="user_prenom" />
+		<result property="age" column="user_age" />
+		<result property="email" column="user_email" />
+		<result property="login" column="user_login" />
+		<result property="password" column="user_password" />
+		<result property="sexe.id" column="user_sexe_id" />
+	</resultMap>
+
+	<sql id="select_Les_Utilisateurs">
+		SELECT user_id,
+		user_nom,
+		user_prenom,
+		user_age,
+		user_email,
+		user_login,
+		user_password
+		FROM UTILISATEURS
+	</sql>
+
+	<select id="getAll" resultMap="Utilisateur_ResultMap">
+		<include refid="select_Les_Utilisateurs" />
+	</select>
+
+	<select id="getById" resultMap="Utilisateur_ResultMap">
+		<include refid="select_Les_Utilisateurs" />
+		WHERE user_id = #{userId}
+	</select>
+
+	<select id="getByLoginPassword" resultMap="Utilisateur_ResultMap">
+		<include refid="select_Les_Utilisateurs" />
+		WHERE user_login = #{login}
+		AND user_password = #{password}
+	</select>
+
+	<insert id="sauvegarder" parameterType="com.terrasport.webservice.core.model.Utilisateur"
+		useGeneratedKeys="true" keyColumn="user_id" keyProperty="user.id">
+		INSERT INTO UTILISATEURS
+		(user_nom,
+		user_prenom,
+		user_email,
+		user_login,
+		user_password,
+		user_age,
+		user_sexe_id
+		VALUES ( #{user.nom},
+		#{user.prenom},
+		#{user.email},
+		#{user.login},
+		#{user.password},
+		#{user.age},
+		#{user.sexe.id} );
+	</insert>
+
+	<update id="modifierLogin" parameterType="com.terrasport.webservice.core.model.Utilisateur">
+		UPDATE UTILISATEURS
+		SET user_login = #{user.login},
+		user_password = #{user.password}
+		WHERE user_id = #{user.id};
+	</update>
+
+</mapper>

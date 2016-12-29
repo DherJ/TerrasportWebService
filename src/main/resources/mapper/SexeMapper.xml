@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.SexeDao">
+
+	<!-- ********** -->
+    <!-- RESULT MAP -->
+    <!-- ********** -->
+	<resultMap id="Sexe_ResultMap" type="com.terrasport.webservice.core.model.Sexe">
+		<id property="id" column="sexe_id" />
+		<result property="libelle" column="sexe_libelle" />
+	</resultMap>
+
+	<sql id="select_Les_Sexes">
+      SELECT sexe_id,
+             sexe_libelle
+      FROM   SEXE
+	</sql>
+
+	<select id="getAll" resultMap="Sexe_ResultMap">
+		<include refid="select_Les_Sexes"/>
+	</select>
+	
+	<select id="getById" resultMap="Sexe_ResultMap">
+		<include refid="select_Les_Sexes"/>
+		WHERE sexe_id = #{sexeId}
+	</select>
+	
+</mapper>
