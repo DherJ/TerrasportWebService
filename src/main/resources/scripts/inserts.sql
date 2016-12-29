@@ -1,39 +1,39 @@
 --   ETAT --
 INSERT INTO public.etat(
             etat_id, etat_libelle)
-    VALUES (1, "En attente");
+    VALUES (1, 'En attente');
 
 INSERT INTO public.etat(
             etat_id, etat_libelle)
-    VALUES (2, "Validée");
+    VALUES (2, 'Validée');
     
 INSERT INTO public.etat(
             etat_id, etat_libelle)
-    VALUES (3, "Refusée");
+    VALUES (3, 'Refusée');
     
 
 --   NIVEAU --
 INSERT INTO public.niveau(
             niveau_id, niveau_libelle)
-    VALUES (1, "Débutant");
+    VALUES (1, 'Débutant');
 
 INSERT INTO public.niveau(
             niveau_id, niveau_libelle)
-    VALUES (2, "Intermédiare");
+    VALUES (2, 'Intermédiare');
     
 INSERT INTO public.niveau(
             niveau_id, niveau_libelle)
-    VALUES (3, "Confirmé");
+    VALUES (3, 'Confirmé');
     
     
 --   SEXE --
 INSERT INTO public.sexe(
             sexe_id, sexe_libelle)
-    VALUES (1, "Homme");
+    VALUES (1, 'Homme');
 
 INSERT INTO public.sexe(
             sexe_id, sexe_libelle)
-    VALUES (2, "Femme");
+    VALUES (2, 'Femme');
     
     
 --   UTILISATEURS --
