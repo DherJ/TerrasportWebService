@@ -1,5 +1,7 @@
 package com.terrasport.webservice.core.model;
 
+import java.util.List;
+
 public class Utilisateur {
 
 	private Integer id;
@@ -9,7 +11,9 @@ public class Utilisateur {
 	private String email;
 	private String login;
 	private String password;
-	private Sexe sexe;
+	private String sexe;
+	
+	private List<CompetenceSport> competencesSport;
 	
 	public Integer getId() {
 		return id;
@@ -53,10 +57,16 @@ public class Utilisateur {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Sexe getSexe() {
+	public String getSexe() {
 		return sexe;
 	}
-	public void setSexe(Sexe sexe) {
+	public void setSexe(String sexe) {
 		this.sexe = sexe;
+	}
+	public List<CompetenceSport> getCompetencesSport() {
+		return competencesSport;
+	}
+	public void setCompetencesSport(List<CompetenceSport> competencesSport) {
+		this.competencesSport = competencesSport;
 	}
 }

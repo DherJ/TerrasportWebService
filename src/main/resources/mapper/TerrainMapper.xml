@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.TerrainDao">
+
+	<!-- ********** -->
+	<!-- RESULT MAP -->
+	<!-- ********** -->
+	<resultMap id="Terrain_ResultMap"
+		type="com.terrasport.webservice.core.model.Terrain">
+		<id property="id" column="terrain_id" />
+		<result property="latitude" column="terrain_latitude" />
+		<result property="longitude" column="terrain_longitude" />
+		<result property="isPublic" column="terrain_public" />
+		<result property="isOccupe" column="terrain_est_occupe" />
+		<association property="sport" column="terrain_type_sport_id" javaType="com.terrasport.webservice.core.model.Sport" select="com.terrasport.webservice.core.dao.SportDao.getById"/>
+	</resultMap>
+
+	<sql id="select_Les_Terrains">
+		SELECT terrain_id,
+		terrain_latitude,
+		terrain_longitude,
+		terrain_est_occupe,
+		terrain_type_sport_id
+		FROM TERRAINS
+	</sql>
+
+	<select id="getAll" resultMap="Terrain_ResultMap">
+		<include refid="select_Les_Terrains" />
+	</select>
+
+	<select id="getAllByTypeSport" resultMap="Terrain_ResultMap">
+		<include refid="select_Les_Terrains" />
+		WHERE terrain_type_sport_id = #{sportId}
+	</select>
+	
+	<select id="getAllPublic" resultMap="Terrain_ResultMap">
+		<include refid="select_Les_Terrains" />
+		WHERE terrain_public = TRUE
+	</select>
+	
+	<select id="getAllPrive" resultMap="Terrain_ResultMap">
+		<include refid="select_Les_Terrains" />
+		WHERE terrain_public = FALSE
+	</select>
+	
+	<select id="getById" resultMap="Terrain_ResultMap">
+		<include refid="select_Les_Terrains" />
+		WHERE terrain_id = #{terrainId}
+	</select>
+
+	<insert id="sauvegarder" parameterType="com.terrasport.webservice.core.model.Terrain"
+		useGeneratedKeys="true" keyColumn="terrain_id" keyProperty="terrain.id">
+		INSERT INTO TERRAINS
+		(terrain_latitude,
+		terrain_longitude,
+		terrain_est_occupe,
+		terrain_type_sport_id
+		VALUES ( #{terrain.latitude},
+		#{terrain.longitude},
+		#{terrain.estOccupe},
+		#{terrain.sport.id} );
+	</insert>
+
+	<delete id="supprimer" parameterType="com.terrasport.webservice.core.model.Terrain">
+		DELETE FROM TERRAINS
+		WHERE terrain_id = #{terrain.id};
+	</delete>
+
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.CompetenceSportDao">
+
+	<!-- ********** -->
+	<!-- RESULT MAP -->
+	<!-- ********** -->
+	<resultMap id="CompetenceSport_ResultMap"
+		type="com.terrasport.webservice.core.model.CompetenceSport">
+		<result property="libelle" column="type_sport_libelle" />
+	</resultMap>
+	
+	<resultMap id="CompetenceSport_ResultMap_Complet"
+		type="com.terrasport.webservice.core.model.CompetenceSport">
+		<association property="sport" column="competence_type_sport_id" javaType="com.terrasport.webservice.core.model.Sport" select="com.terrasport.webservice.core.dao.SportDao.getById"/>
+		<association property="niveau" column="competence_niveau_id" javaType="com.terrasport.webservice.core.model.Niveau" select="com.terrasport.webservice.core.dao.NiveauDao.getById"/>
+	</resultMap>
+
+	<sql id="select_Les_Competences">
+		SELECT competence_user_id,
+		competence_type_sport_id,
+		competence_niveau_id
+		FROM COMPETENCE_SPORT
+	</sql>
+
+	<select id="getAll" resultMap="CompetenceSport_ResultMap_Complet">
+		<include refid="select_Les_Competences" />
+	</select>
+
+	<select id="getByUserId" resultMap="CompetenceSport_ResultMap_Complet">
+		<include refid="select_Les_Competences" />
+		WHERE competence_user_id = #{userId}
+	</select>
+
+	<insert id="sauvegarder" parameterType="com.terrasport.webservice.core.model.CompetenceSport">
+		INSERT INTO COMPETENCE_SPORT
+		(competence_user_id,
+		competence_type_sport_id,
+		competence_niveau_id
+		VALUES ( #{competence.user.id},
+		#{competence.sport.id},
+		#{competence.niveau.id} );
+	</insert>
+
+	<delete id="supprimer" parameterType="com.terrasport.webservice.core.model.CompetenceSport">
+		DELETE FROM COMPETENCE_SPORT
+		WHERE competence_user_id = #{competence.user.id}
+		AND competence_type_sport_id = #{competence.sport.id}
+		AND competence_niveau_id = #{competence.niveau.id};
+	</delete>
+</mapper>

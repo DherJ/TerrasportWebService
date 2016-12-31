@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.SportDao">
+
+	<!-- ********** -->
+    <!-- RESULT MAP -->
+    <!-- ********** -->
+	<resultMap id="sport_ResultMap" type="com.terrasport.webservice.core.model.Sport">
+		<id property="id" column="type_sport_id" />
+		<result property="libelle" column="type_sport_libelle" />
+	</resultMap>
+
+	<sql id="select_Les_Sports">
+      SELECT type_sport_id,
+             type_sport_libelle
+      FROM   TYPE_SPORT
+	</sql>
+
+	<select id="getAll" resultMap="sport_ResultMap">
+		<include refid="select_Les_Sports"/>
+	</select>
+	
+	<select id="getById" resultMap="sport_ResultMap">
+		<include refid="select_Les_Sports"/>
+		WHERE type_sport_id = #{sportId}
+	</select>
+	
+</mapper>

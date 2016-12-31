@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.EtatDao">
+
+	<!-- ********** -->
+    <!-- RESULT MAP -->
+    <!-- ********** -->
+	<resultMap id="etat_ResultMap" type="com.terrasport.webservice.core.model.Etat">
+		<id property="id" column="etat_id" />
+		<result property="libelle" column="etat_libelle" />
+	</resultMap>
+
+	<sql id="select_Les_Etats">
+      SELECT etat_id,
+             etat_libelle
+      FROM   etat
+	</sql>
+
+	<select id="getAll" resultMap="etat_ResultMap">
+		<include refid="select_Les_Etats"/>
+	</select>
+	
+	<select id="getById" resultMap="etat_ResultMap">
+		<include refid="select_Les_Etats"/>
+		WHERE etat_id = #{etatId}
+	</select>
+	
+</mapper>

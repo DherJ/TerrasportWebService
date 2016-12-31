@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.NiveauDao">
+
+	<!-- ********** -->
+    <!-- RESULT MAP -->
+    <!-- ********** -->
+	<resultMap id="niveau_ResultMap" type="com.terrasport.webservice.core.model.Niveau">
+		<id property="id" column="niveau_id" />
+		<result property="libelle" column="niveau_libelle" />
+	</resultMap>
+
+	<sql id="select_Les_Niveaux">
+      SELECT niveau_id,
+             niveau_libelle
+      FROM   niveau
+	</sql>
+
+	<select id="getAll" resultMap="niveau_ResultMap">
+		<include refid="select_Les_Niveaux"/>
+	</select>
+	
+	<select id="getById" resultMap="niveau_ResultMap">
+		<include refid="select_Les_Niveaux"/>
+		WHERE niveau_id = #{niveauId}
+	</select>
+	
+</mapper>

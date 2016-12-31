@@ -1,6 +1,6 @@
 package com.terrasport.webservice.core.model;
 
-public class Sexe {
+public class Niveau {
 
 	private Integer id;
 	private String libelle;

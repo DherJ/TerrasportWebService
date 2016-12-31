@@ -16,7 +16,8 @@
 		<result property="email" column="user_email" />
 		<result property="login" column="user_login" />
 		<result property="password" column="user_password" />
-		<result property="sexe.id" column="user_sexe_id" />
+		<result property="sexe" column="user_sexe" />
+		<collection property="competencesSport" column="user_id" javaType="ArrayList" ofType="com.terrasport.webservice.core.model.CompetenceSport" select="com.terrasport.webservice.core.dao.CompetenceSportDao.getByUserId"/>
 	</resultMap>
 
 	<sql id="select_Les_Utilisateurs">
@@ -26,7 +27,8 @@
 		user_age,
 		user_email,
 		user_login,
-		user_password
+		user_password,
+		user_sexe
 		FROM UTILISATEURS
 	</sql>
 
@@ -54,14 +56,14 @@
 		user_login,
 		user_password,
 		user_age,
-		user_sexe_id
+		user_sexe
 		VALUES ( #{user.nom},
 		#{user.prenom},
 		#{user.email},
 		#{user.login},
 		#{user.password},
 		#{user.age},
-		#{user.sexe.id} );
+		#{user.sexe} );
 	</insert>
 
 	<update id="modifierLogin" parameterType="com.terrasport.webservice.core.model.Utilisateur">
