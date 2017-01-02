@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.ParticipationDao">
+
+	<!--  	**********  -->
+	<!--  	RESULT MAP  -->
+	<!--  	**********  -->
+	<resultMap id="Participation_ResultMap_Complet"
+		type="com.terrasport.webservice.core.model.Participation">
+		<id property="id" column="participations_id" />
+		<result property="date" column="participations_date" />
+		<association property="evenement" column="participations_evenement_id" javaType="com.terrasport.webservice.core.model.Evenement" select="com.terrasport.webservice.core.dao.EvenementDao.getById"/>
+		<collection property="utilisateurs" column="participations_user_id" javaType="ArrayList" ofType="com.terrasport.webservice.core.model.CompetenceSport" select="com.terrasport.webservice.core.dao.UtilisateurDao.getById"/>
+	</resultMap>
+	
+	<sql id="select_Les_Participations">
+		SELECT participations_id,
+		participations_date,
+		participations_evenement_id,
+		participations_user_id
+		FROM PARTICIPATIONS
+	</sql>
+	
+	
+</mapper>

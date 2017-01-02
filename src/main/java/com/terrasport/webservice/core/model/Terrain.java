@@ -5,8 +5,8 @@ public class Terrain {
 	private Integer id;
 	private String latitude;
 	private String longitude;
-	private Boolean isPublic;
-	private Boolean isOccupe;
+	private boolean isPublic;
+	private boolean isOccupe;
 	private Sport sport;
 	
 	public Integer getId() {
@@ -27,16 +27,16 @@ public class Terrain {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public Boolean getIsPublic() {
+	public boolean getIsPublic() {
 		return isPublic;
 	}
-	public void setIsPublic(Boolean isPublic) {
+	public void setIsPublic(boolean isPublic) {
 		this.isPublic = isPublic;
 	}
-	public Boolean getIsOccupe() {
+	public boolean getIsOccupe() {
 		return isOccupe;
 	}
-	public void setIsOccupe(Boolean isOccupe) {
+	public void setIsOccupe(boolean isOccupe) {
 		this.isOccupe = isOccupe;
 	}
 	public Sport getSport() {

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.terrasport.webservice.core.dao.EvenementDao">
+	
+	<!-- ********** -->
+	<!-- RESULT MAP -->
+	<!-- ********** -->
+	<resultMap id="Evenement_ResultMap_Complet"
+		type="com.terrasport.webservice.core.model.Evenement">
+		<id property="id" column="evenement_id" />
+		<result property="prive" column="evenement_prive" />
+		<result property="nbPlaces" column="evenement_nb_participants" />
+		<result property="nbPlacesRestantes" column="evenement_nb_places_restantes" />
+		<association property="sport" column="evenement_sport_id" javaType="com.terrasport.webservice.core.model.Sport" select="com.terrasport.webservice.core.dao.SportDao.getById"/>
+		<association property="niveauCible" column="evenement_niveau_id" javaType="com.terrasport.webservice.core.model.Niveau" select="com.terrasport.webservice.core.dao.NiveauDao.getById"/>
+		<association property="terrain" column="evenement_terrain_id" javaType="com.terrasport.webservice.core.model.Terrain" select="com.terrasport.webservice.core.dao.TerrainDao.getById"/>
+		<association property="utilisateurCreateur" column="evenement_user_id" javaType="com.terrasport.webservice.core.model.Utilisateur" select="com.terrasport.webservice.core.dao.UtilisateurDao.getById"/>
+	</resultMap>
+
+	<sql id="select_Les_Evenements">
+		SELECT evenement_id,
+		evenement_prive,
+		evenement_nb_participants,
+		evenement_nb_places_restantes,
+		evenement_sport_id,
+		evenement_niveau_id,
+		evenement_terrain_id,
+		evenement_user_id
+		FROM EVENEMENTS
+	</sql>
+
+	<select id="getAll" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+	</select>
+
+	<select id="getEvenementsPublic" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+		WHERE evenement_prive = FALSE
+	</select>
+	
+	<select id="getEvenementsPrive" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+		WHERE evenement_prive = TRUE
+	</select>
+	
+	<select id="getAllBySport" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+		WHERE evenement_sport_id = #{sportId}
+	</select>
+	
+	<select id="getById" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+		WHERE evenement_id = #{evenementId}
+	</select>
+	
+	<insert id="sauvegarder" parameterType="com.terrasport.webservice.core.model.Evenement" useGeneratedKeys="true" keyColumn="evenement_id" keyProperty="evenement.id">
+		INSERT INTO EVENEMENTS
+		(
+		evenement_prive,
+		evenement_nb_participants,
+		evenement_nb_places_restantes,
+		evenement_sport_id,
+		evenement_niveau_id,
+		evenement_terrain_id,
+		evenement_user_id)
+		VALUES ( #{evenement.prive},
+		#{evenement.nbPlaces},
+		#{evenement.nbPlacesRestantes},
+		#{evenement.sport.id},
+		#{evenement.niveauCible.id},
+		#{evenement.terrain.id},
+		#{evenement.utilisateurCreateur.id} );
+	</insert>
+
+	<update id="modifierNbPlacesRestantes" parameterType="com.terrasport.webservice.core.model.Evenement">
+		UPDATE EVENEMENTS
+		SET evenement_nb_plces_restantes = #{evenement.nbPlacesRestantes},
+		WHERE evenement_id = #{evenement.id};
+	</update>
+	
+	<delete id="supprimer" parameterType="com.terrasport.webservice.core.model.Evenement">
+		DELETE FROM EVENEMENTS
+		WHERE evenement_id = #{evenement.id}
+	</delete>
+</mapper>

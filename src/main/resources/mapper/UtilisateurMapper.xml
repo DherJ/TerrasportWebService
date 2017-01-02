@@ -56,7 +56,7 @@
 		user_login,
 		user_password,
 		user_age,
-		user_sexe
+		user_sexe)
 		VALUES ( #{user.nom},
 		#{user.prenom},
 		#{user.email},

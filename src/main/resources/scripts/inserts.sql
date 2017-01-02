@@ -151,3 +151,42 @@ INSERT INTO public.evenements(
     VALUES (3, 3, 3, 3, 
             1, true, 11, 
             8);
+
+            
+--   DEMANDES PARTICIPATIONS -- 
+INSERT INTO public.demandes_participations(
+            demandes_participations_id, demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (1, 1, 1, 
+            1, CURRENT_TIMESTAMP);
+
+INSERT INTO public.demandes_participations(
+            demandes_participations_id, demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (2, 2, 2, 
+            2, CURRENT_TIMESTAMP);
+ 
+INSERT INTO public.demandes_participations(
+            demandes_participations_id, demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (3, 2, 2, 
+            3, CURRENT_TIMESTAMP);   
+            
+--   PARTICIPATIONS -- 
+INSERT INTO public.participations(
+            participations_id, participations_evenement_id,
+            participations_user_id, participations_date)
+    VALUES (1, 3,
+            5, CURRENT_TIMESTAMP);
+
+INSERT INTO public.participations(
+            participations_id, participations_evenement_id, 
+            participations_user_id, participations_date)
+    VALUES (2, 2, 
+            4, CURRENT_TIMESTAMP);
+ 
+INSERT INTO public.participations(
+            participations_id, participations_evenement_id,
+            participations_user_id, participations_date)
+    VALUES (3, 3,
+            3, CURRENT_TIMESTAMP); 

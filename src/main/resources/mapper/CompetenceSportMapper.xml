@@ -38,7 +38,7 @@
 		INSERT INTO COMPETENCE_SPORT
 		(competence_user_id,
 		competence_type_sport_id,
-		competence_niveau_id
+		competence_niveau_id)
 		VALUES ( #{competence.user.id},
 		#{competence.sport.id},
 		#{competence.niveau.id} );

@@ -22,6 +22,7 @@
 		terrain_latitude,
 		terrain_longitude,
 		terrain_est_occupe,
+		terrain_public,
 		terrain_type_sport_id
 		FROM TERRAINS
 	</sql>
@@ -56,7 +57,7 @@
 		(terrain_latitude,
 		terrain_longitude,
 		terrain_est_occupe,
-		terrain_type_sport_id
+		terrain_type_sport_id)
 		VALUES ( #{terrain.latitude},
 		#{terrain.longitude},
 		#{terrain.estOccupe},
