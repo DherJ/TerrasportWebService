@@ -20,6 +20,6 @@ public interface TerrainDao {
 	
 	public void sauvegarder(@Param("terrain") final Terrain terrain);
 	
-	public void supprimer(@Param("terrain") final Terrain terrain);
+	public void supprimer(@Param("terrainId") final Integer terrainId);
 	
 }

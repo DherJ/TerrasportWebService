@@ -40,7 +40,13 @@
 		AND demandes_participations_etat_id = 1
 	</select>
 	
-	<select id="getAllByUserId" resultMap="DemandeParticipation_ResultMap_Complet">
+	<select id="getAllValideePourEvenement" resultMap="DemandeParticipation_ResultMap_Complet">
+		<include refid="select_Les_DemandesParticipations" />
+		WHERE demandes_participations_evenement_id = #{evenementId}
+		AND demandes_participations_etat_id = 2
+	</select>
+	
+	<select id="getAllPourUtilisateur" resultMap="DemandeParticipation_ResultMap_Complet">
 		<include refid="select_Les_DemandesParticipations" />
 		WHERE demandes_participations_user_id = #{userId}
 	</select>
@@ -60,19 +66,20 @@
 		VALUES ( CURRENT_TIMESTAMP,
 		#{demandeParticipation.evenement.id},
 		1,
-		#{demandeParticipation.user.id} );
+		#{demandeParticipation.utilisateur.id} );
 	</insert>
 	
 	<update id="miseAjourEtatDemande" parameterType="com.terrasport.webservice.core.model.DemandeParticipation">
 		UPDATE DEMANDES_PARTICIPATIONS
-		SET demandes_participations_etat_id = #{demandeParticipation.etat.id},
-		user_password = #{user.password}
-		WHERE demandes_participations_id = #{demandeParticipation.id};
+		SET demandes_participations_etat_id = #{demandeParticipation.etat.id}
+		FROM EVENEMENTS
+		WHERE demandes_participations_id = #{demandeParticipation.id}
+		AND evenement_user_id = #{demandeParticipation.evenement.utilisateurCreateur.id};
 	</update>
 	
-	<delete id="annuler" parameterType="com.terrasport.webservice.core.model.DemandeParticipation">
+	<delete id="supprimer">
 		DELETE FROM DEMANDES_PARTICIPATIONS
-		WHERE demandes_participations_id = #{demandeParticipation.id};
+		WHERE demandes_participations_id = #{demandeParticipationId};
 	</delete>
 	
 </mapper>

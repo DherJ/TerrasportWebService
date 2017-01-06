@@ -22,6 +22,6 @@ public interface EvenementDao {
 	
 	public void modifierNbPlacesRestantes(@Param("evenement") final Evenement evenement);
 	
-	public void supprimer(@Param("evenement") final Evenement evenement);
+	public void supprimer(@Param("evenement") final Integer evenementId);
 	
 }

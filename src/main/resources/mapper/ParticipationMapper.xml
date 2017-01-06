@@ -12,7 +12,7 @@
 		<id property="id" column="participations_id" />
 		<result property="date" column="participations_date" />
 		<association property="evenement" column="participations_evenement_id" javaType="com.terrasport.webservice.core.model.Evenement" select="com.terrasport.webservice.core.dao.EvenementDao.getById"/>
-		<collection property="utilisateurs" column="participations_user_id" javaType="ArrayList" ofType="com.terrasport.webservice.core.model.CompetenceSport" select="com.terrasport.webservice.core.dao.UtilisateurDao.getById"/>
+		<association property="utilisateur" column="participations_user_id" javaType="com.terrasport.webservice.core.model.CompetenceSport" select="com.terrasport.webservice.core.dao.UtilisateurDao.getById"/>
 	</resultMap>
 	
 	<sql id="select_Les_Participations">
@@ -23,5 +23,34 @@
 		FROM PARTICIPATIONS
 	</sql>
 	
+	<select id="getAll" resultMap="Participation_ResultMap_Complet">
+		<include refid="select_Les_Participations" />
+	</select>
+	
+	<select id="getAllByEvenement" resultMap="Participation_ResultMap_Complet">
+		<include refid="select_Les_Participations" />
+		WHERE participations_evenement_id = #{evenementId}
+	</select>
+	
+	<select id="getAllByUser" resultMap="Participation_ResultMap_Complet">
+		<include refid="select_Les_Participations" />
+		WHERE participations_user_id = #{utilisateurId}
+	</select>
+	
+	<select id="getById" resultMap="Participation_ResultMap_Complet">
+		<include refid="select_Les_Participations" />
+		WHERE participations_id = #{participationId}
+	</select>
+	
+	<insert id="sauvegarder" parameterType="com.terrasport.webservice.core.model.Participation"
+		useGeneratedKeys="true" keyColumn="participations_id" keyProperty="participation.id">
+		INSERT INTO PARTICIPATIONS
+		(participations_date,
+		participations_evenement_id,
+		participations_user_id)
+		VALUES ( CURRENT_TIMESTAMP,
+		#{demandeParticipation.evenement.id},
+		#{demandeParticipation.utilisateur.id} );
+	</insert>
 	
 </mapper>

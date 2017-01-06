@@ -66,9 +66,11 @@
 		#{user.sexe} );
 	</insert>
 
-	<update id="modifierLogin" parameterType="com.terrasport.webservice.core.model.Utilisateur">
+	<update id="modifier" parameterType="com.terrasport.webservice.core.model.Utilisateur">
 		UPDATE UTILISATEURS
-		SET user_login = #{user.login},
+		SET user_nom = #{user.nom}
+		user_prenom = #{user.prenom}
+		user_email = #{user.email}
 		user_password = #{user.password}
 		WHERE user_id = #{user.id};
 	</update>

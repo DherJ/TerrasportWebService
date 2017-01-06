@@ -80,8 +80,8 @@
 		WHERE evenement_id = #{evenement.id};
 	</update>
 	
-	<delete id="supprimer" parameterType="com.terrasport.webservice.core.model.Evenement">
+	<delete id="supprimer">
 		DELETE FROM EVENEMENTS
-		WHERE evenement_id = #{evenement.id}
+		WHERE evenement_id = #{evenementId}
 	</delete>
 </mapper>

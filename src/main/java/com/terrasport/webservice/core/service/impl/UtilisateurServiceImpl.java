@@ -31,12 +31,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	}
 
 	@Override
-	public void ajouter(Utilisateur utilisateur) {
+	public void sauvegarder(Utilisateur utilisateur) {
 		this.utilisateurDao.sauvegarder(utilisateur);
 	}
 
 	@Override
-	public void modifierLogin(Utilisateur utilisateur) {
-		this.utilisateurDao.modifierLogin(utilisateur);
+	public void modifier(Utilisateur utilisateur) {
+		this.utilisateurDao.modifier(utilisateur);
 	}
 }

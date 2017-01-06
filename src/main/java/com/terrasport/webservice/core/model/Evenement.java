@@ -1,5 +1,7 @@
 package com.terrasport.webservice.core.model;
 
+import java.util.List;
+
 public class Evenement {
 
 	private Integer id;
@@ -10,6 +12,8 @@ public class Evenement {
 	private Sport sport;
 	private Niveau niveauCible;
 	private Utilisateur utilisateurCreateur;
+	private List<Participation> participation;
+	private List<DemandeParticipation> demandesParticipation;
 	
 	public Integer getId() {
 		return id;
@@ -58,5 +62,17 @@ public class Evenement {
 	}
 	public void setUtilisateurCreateur(Utilisateur utilisateurCreateur) {
 		this.utilisateurCreateur = utilisateurCreateur;
+	}
+	public List<Participation> getParticipation() {
+		return participation;
+	}
+	public void setParticipation(List<Participation> participation) {
+		this.participation = participation;
+	}
+	public List<DemandeParticipation> getDemandesParticipation() {
+		return demandesParticipation;
+	}
+	public void setDemandesParticipation(List<DemandeParticipation> demandesParticipation) {
+		this.demandesParticipation = demandesParticipation;
 	}
 }

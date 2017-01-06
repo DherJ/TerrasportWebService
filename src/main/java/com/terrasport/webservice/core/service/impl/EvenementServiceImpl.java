@@ -41,8 +41,8 @@ public class EvenementServiceImpl implements EvenementService {
 	}
 
 	@Override
-	public void supprimer(Evenement evenement) {
-		this.evenementDao.supprimer(evenement);
+	public void supprimer(Integer evenementId) {
+		this.evenementDao.supprimer(evenementId);
 	}
 
 	@Override

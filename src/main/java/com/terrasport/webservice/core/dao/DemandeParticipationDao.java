@@ -14,7 +14,9 @@ public interface DemandeParticipationDao {
 	
 	public List<DemandeParticipation> getAllEnAttentePourEvenement(@Param("evenementId") final Integer evenementId);
 	
-	public List<DemandeParticipation> getAllByUserId(@Param("userId") final Integer userId);
+	public List<DemandeParticipation> getAllValideePourEvenement(@Param("evenementId") final Integer evenementId);
+	
+	public List<DemandeParticipation> getAllPourUtilisateur(@Param("userId") final Integer userId);
 	
 	public DemandeParticipation getById(@Param("demandeParticipationId") final Integer demandeParticipationId);
 	
@@ -22,5 +24,5 @@ public interface DemandeParticipationDao {
 	
 	public void miseAjourEtatDemande(@Param("demandeParticipation") final DemandeParticipation demandeParticipation);
 	
-	public void annuler(@Param("demandearticipation") final DemandeParticipation demandeParticipation);
+	public void supprimer(@Param("demandeParticipationId") final Integer demandeParticipationId);
 }

@@ -59,9 +59,9 @@ public class EvenementController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/supprimer", method = RequestMethod.POST)
-    public ResponseEntity<Void> supprimerTerrain(@RequestBody final Evenement evenement) {
-        this.evenementService.supprimer(evenement);
+    @RequestMapping(value = "/supprimer/{evenementId}", method = RequestMethod.POST)
+    public ResponseEntity<Void> supprimerTerrain(@RequestParam("sportId") final Integer evenementId) {
+        this.evenementService.supprimer(evenementId);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 }

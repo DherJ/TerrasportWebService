@@ -64,9 +64,9 @@
 		#{terrain.sport.id} );
 	</insert>
 
-	<delete id="supprimer" parameterType="com.terrasport.webservice.core.model.Terrain">
+	<delete id="supprimer">
 		DELETE FROM TERRAINS
-		WHERE terrain_id = #{terrain.id};
+		WHERE terrain_id = #{terrainId};
 	</delete>
 
 </mapper>

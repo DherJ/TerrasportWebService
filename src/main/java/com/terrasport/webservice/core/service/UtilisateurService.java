@@ -12,7 +12,7 @@ public interface UtilisateurService {
 	
 	public Utilisateur getByLoginPassword(String login, String password);
 	
-	public void ajouter(Utilisateur utilisateur);
+	public void sauvegarder(Utilisateur utilisateur);
 	
-	public void modifierLogin(Utilisateur utilisateur);
+	public void modifier(Utilisateur utilisateur);
 }

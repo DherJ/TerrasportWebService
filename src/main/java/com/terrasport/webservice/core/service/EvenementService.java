@@ -16,7 +16,7 @@ public interface EvenementService {
 	
 	public void sauvegarder(final Evenement evenement);
 	
-	public void supprimer(final Evenement evenement);
+	public void supprimer(final Integer evenementId);
 	
 	public void ajouterMembre(final Evenement evenement);
 	

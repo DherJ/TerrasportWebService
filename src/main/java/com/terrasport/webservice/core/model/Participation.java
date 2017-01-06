@@ -1,19 +1,25 @@
 package com.terrasport.webservice.core.model;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 public class Participation {
 
-	private List<Utilisateur> utilisateurs;
+	private Integer id;
+	private Utilisateur utilisateur;
 	private Evenement evenement;
 	private Timestamp date;
 	
-	public List<Utilisateur> getUtilisateurs() {
-		return utilisateurs;
+	public Integer getId() {
+		return id;
 	}
-	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
-		this.utilisateurs = utilisateurs;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	public Evenement getEvenement() {
 		return evenement;

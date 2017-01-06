@@ -3,6 +3,9 @@ package com.terrasport.webservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,10 +26,19 @@ public class UtilisateurController {
         return this.utilisateurService.getAll();
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/{utilisateurId}", method = RequestMethod.GET)
     public Utilisateur getUtilisateurById(@RequestParam("utilisateurId") final Integer utilisateurId) {
         return this.utilisateurService.getById(utilisateurId);
     }
     
+    @RequestMapping(value = "/{utilisateurLogin}&{utilisateurPassword}", method = RequestMethod.GET)
+    public Utilisateur getUtilisateurByLoginPassword(@RequestParam("utilisateurLogin") final String utilisateurLogin, @RequestParam("utilisateurPassword") final String utilisateurPassword) {
+        return this.utilisateurService.getByLoginPassword(utilisateurLogin, utilisateurPassword);
+    }
     
+    @RequestMapping(value = "/sauvegarder", method = RequestMethod.POST)
+    public ResponseEntity<Void> sauvegarderEvenement(@RequestBody final Utilisateur utilisateur) {
+        this.utilisateurService.sauvegarder(utilisateur);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }

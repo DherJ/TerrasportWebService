@@ -8,17 +8,13 @@ import com.terrasport.webservice.core.model.Participation;
 
 public interface ParticipationDao {
 
-//	public List<Participation> getAll();
-//	
-//	public List<Participation> getAllEnAttente();
-//	
-//	public List<Participation> getByUserId(@Param("userId") final Integer userId);
-//	
-//	public void sauvegarder(@Param("participation") final Participation participation);
-//	
-//	public void valider(@Param("participation") final Participation participation);
-//	
-//	public void refuser(@Param("participation") final Participation participation);
-//	
-//	public void annuler(@Param("participation") final Participation participation);
+	public List<Participation> getAll();
+	
+	public List<Participation> getAllPourEvenement(@Param("evenementId") final Integer userId);
+	
+	public List<Participation> getAllPourUtilisateur(@Param("utilisateurId") final Integer userId);
+	
+	public Participation getById(@Param("participationId") final Integer participationId);
+	
+	public void sauvegarder(@Param("participation") final Participation participation);
 }
