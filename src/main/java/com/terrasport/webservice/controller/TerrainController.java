@@ -52,6 +52,12 @@ public class TerrainController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
     
+    @RequestMapping(value = "/changer-etat", method = RequestMethod.POST)
+    public ResponseEntity<Void> markTerrainAsPopulate(@RequestBody final Terrain terrain) {
+        this.terrainService.changerEtat(terrain);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+    
     @RequestMapping(value = "/supprimer/{terrainId}", method = RequestMethod.GET)
     public ResponseEntity<Void> supprimerTerrain(@RequestParam("terrainId") final Integer terrainId) {
         this.terrainService.supprimer(terrainId);

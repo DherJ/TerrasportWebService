@@ -18,5 +18,8 @@ public interface TerrainService {
 	
 	public void sauvegarder(final Terrain terrain);
 	
+	public void changerEtat(Terrain terrain);
+	
 	public void supprimer(final Integer terrainId);
+
 }

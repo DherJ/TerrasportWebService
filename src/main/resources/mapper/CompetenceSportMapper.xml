@@ -7,11 +7,6 @@
 	<!-- ********** -->
 	<!-- RESULT MAP -->
 	<!-- ********** -->
-	<resultMap id="CompetenceSport_ResultMap"
-		type="com.terrasport.webservice.core.model.CompetenceSport">
-		<result property="libelle" column="type_sport_libelle" />
-	</resultMap>
-	
 	<resultMap id="CompetenceSport_ResultMap_Complet"
 		type="com.terrasport.webservice.core.model.CompetenceSport">
 		<association property="sport" column="competence_type_sport_id" javaType="com.terrasport.webservice.core.model.Sport" select="com.terrasport.webservice.core.dao.SportDao.getById"/>

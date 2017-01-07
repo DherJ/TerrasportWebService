@@ -31,9 +31,9 @@ public class UtilisateurController {
         return this.utilisateurService.getById(utilisateurId);
     }
     
-    @RequestMapping(value = "/{utilisateurLogin}&{utilisateurPassword}", method = RequestMethod.GET)
-    public Utilisateur getUtilisateurByLoginPassword(@RequestParam("utilisateurLogin") final String utilisateurLogin, @RequestParam("utilisateurPassword") final String utilisateurPassword) {
-        return this.utilisateurService.getByLoginPassword(utilisateurLogin, utilisateurPassword);
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public Utilisateur getUtilisateurByLoginPassword(@RequestParam("login") final String login, @RequestParam("password") final String password) {
+        return this.utilisateurService.getByLoginPassword(login, password);
     }
     
     @RequestMapping(value = "/sauvegarder", method = RequestMethod.POST)

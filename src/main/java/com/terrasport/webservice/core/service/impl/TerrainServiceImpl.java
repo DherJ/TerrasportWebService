@@ -46,6 +46,11 @@ public class TerrainServiceImpl implements TerrainService {
 	}
 
 	@Override
+	public void changerEtat(Terrain terrain) {
+		this.terrainDao.changerEtat(terrain);
+	}
+	
+	@Override
 	public void supprimer(Integer terrainId) {
 		this.terrainDao.supprimer(terrainId);
 	}

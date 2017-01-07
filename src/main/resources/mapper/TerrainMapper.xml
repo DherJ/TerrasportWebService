@@ -64,6 +64,12 @@
 		#{terrain.sport.id} );
 	</insert>
 
+	<update id="modifier" parameterType="com.terrasport.webservice.core.model.Terrain">
+		UPDATE TERRAINS
+		SET terrain_est_occupe = #{terrain.isOccupe}
+		WHERE terrain_id = #{terrain.id};
+	</update>
+	
 	<delete id="supprimer">
 		DELETE FROM TERRAINS
 		WHERE terrain_id = #{terrainId};

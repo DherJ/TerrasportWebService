@@ -4,12 +4,19 @@ import java.sql.Timestamp;
 
 public class DemandeParticipation {
 
+	private Integer id;
 	private Utilisateur utilisateurConnecte;
 	private Utilisateur utilisateur;
 	private Evenement evenement;
 	private Etat etat;
 	private Timestamp dateDemande;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Utilisateur getUtilisateurConnecte() {
 		return utilisateurConnecte;
 	}
