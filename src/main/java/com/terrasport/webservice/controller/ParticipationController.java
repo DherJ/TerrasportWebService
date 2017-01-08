@@ -21,22 +21,22 @@ public class ParticipationController {
 	@Autowired
 	private ParticipationService participationService;
 	
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
     public List<Participation> getAllParticipation() {
         return this.participationService.getAll();
     }
     
-    @RequestMapping(value = "/all/evenement/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/all/evenement/{id}", method = RequestMethod.GET, produces="application/json")
     public List<Participation> getAllParticipationsPourEvenements(@RequestParam("id") final Integer evenementId) {
         return this.participationService.getAllPourEvenement(evenementId);
     }
     
-    @RequestMapping(value = "/all/utilisateur/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/all/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
     public List<Participation> getAllParticipationsPourUtilisateur(@RequestParam("id") final Integer utilisateurId) {
         return this.participationService.getAllPourUtilisateur(utilisateurId);
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")
     public Participation getParticipationById(@RequestParam("id") final Integer participationId) {
         return this.participationService.getById(participationId);
     }

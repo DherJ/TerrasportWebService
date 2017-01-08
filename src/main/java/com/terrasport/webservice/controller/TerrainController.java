@@ -21,27 +21,27 @@ public class TerrainController {
 	@Autowired
 	private TerrainService terrainService;
 	
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
     public List<Terrain> getAllTerrains() {
         return this.terrainService.getAll();
     }
     
-    @RequestMapping(value = "/public", method = RequestMethod.GET)
+    @RequestMapping(value = "/public", method = RequestMethod.GET, produces="application/json")
     public List<Terrain> getAllTerrainsPublic() {
         return this.terrainService.getAllPublic();
     }
     
-    @RequestMapping(value = "/prive", method = RequestMethod.GET)
+    @RequestMapping(value = "/prive", method = RequestMethod.GET, produces="application/json")
     public List<Terrain> getAllTerrainsPrive() {
         return this.terrainService.getAllPrive();
     }
     
-    @RequestMapping(value= "/sport/{id}", method = RequestMethod.GET)
+    @RequestMapping(value= "/sport/{id}", method = RequestMethod.GET, produces="application/json")
     public List<Terrain> getAllTerrainsBySport(@RequestParam("id") final Integer sportId) {
         return this.terrainService.getAllByTypeSport(sportId);
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")
     public Terrain getTerrainById(@RequestParam("id") final Integer terrainId) {
         return this.terrainService.getById(terrainId);
     }

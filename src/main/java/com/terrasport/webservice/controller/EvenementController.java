@@ -21,27 +21,27 @@ public class EvenementController {
 	@Autowired
 	private EvenementService evenementService;
 	
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
     public List<Evenement> getAllUtilisateur() {
         return this.evenementService.getAll();
     }
     
-    @RequestMapping(value = "/public", method = RequestMethod.GET)
+    @RequestMapping(value = "/public", method = RequestMethod.GET, produces="application/json")
     public List<Evenement> getEvenementsPublic() {
         return this.evenementService.getEvenementsPublic();
     }
     
-    @RequestMapping(value = "/prive", method = RequestMethod.GET)
+    @RequestMapping(value = "/prive", method = RequestMethod.GET, produces="application/json")
     public List<Evenement> getEvenementsPrive() {
         return this.evenementService.getEvenementsPrive();
     }
     
-    @RequestMapping(value = "/sport/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/sport/{id}", method = RequestMethod.GET, produces="application/json")
     public List<Evenement> getAllBySport(@RequestParam("id") final Integer sportId) {
         return this.evenementService.getAllBySport(sportId);
     }
     
-    @RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
     public List<Evenement> getAllByUtilisateur(@RequestParam("id") final Integer utilisateurId) {
         return this.evenementService.getAllByUtilisateur(utilisateurId);
     }

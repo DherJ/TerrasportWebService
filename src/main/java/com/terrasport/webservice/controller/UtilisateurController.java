@@ -21,17 +21,17 @@ public class UtilisateurController {
 	@Autowired
 	private UtilisateurService utilisateurService;
 	
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
     public List<Utilisateur> getAllUtilisateur() {
         return this.utilisateurService.getAll();
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces="application/json")
     public Utilisateur getUtilisateurById(@RequestParam("id") final Integer utilisateurId) {
         return this.utilisateurService.getById(utilisateurId);
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/authentification", method = RequestMethod.GET, produces="application/json")
     public Utilisateur getUtilisateurByLoginPassword(@RequestParam("login") final String login, @RequestParam("password") final String password) {
         return this.utilisateurService.getByLoginPassword(login, password);
     }

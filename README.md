@@ -16,7 +16,7 @@ Web services pour gérer les données de l'application Terrasport
 ## Utilisateur
 * GET http://localhost:8080/utilisateur/all
 * GET http://localhost:8080/utilisateur/{utilisateurId}
-* GET http://localhost:8080/utilisateur/?login={login}&password={password}
+* GET http://localhost:8080/utilisateur/authentification?login={login}&password={password}
 
 
 ## Terrain
