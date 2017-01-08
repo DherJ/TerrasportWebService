@@ -14,6 +14,10 @@ public interface EvenementService {
 	
 	public List<Evenement> getAllBySport(final Integer sportId);
 	
+	public List<Evenement> getAllByUtilisateur(Integer utilisateurId);
+	
+	public Evenement getById(Integer evenementId);
+	
 	public void sauvegarder(final Evenement evenement);
 	
 	public void supprimer(final Integer evenementId);
@@ -21,4 +25,5 @@ public interface EvenementService {
 	public void ajouterMembre(final Evenement evenement);
 	
 	public void supprimerMembre(final Evenement evenement);
+
 }

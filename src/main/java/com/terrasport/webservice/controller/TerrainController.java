@@ -36,13 +36,13 @@ public class TerrainController {
         return this.terrainService.getAllPrive();
     }
     
-    @RequestMapping(value= "/sport/{sportId}", method = RequestMethod.GET)
-    public List<Terrain> getAllTerrainsBySport(@RequestParam("sportId") final Integer sportId) {
+    @RequestMapping(value= "/sport/{id}", method = RequestMethod.GET)
+    public List<Terrain> getAllTerrainsBySport(@RequestParam("id") final Integer sportId) {
         return this.terrainService.getAllByTypeSport(sportId);
     }
     
-    @RequestMapping(value = "/{terrainId}", method = RequestMethod.GET)
-    public Terrain getTerrainById(@RequestParam("terrainId") final Integer terrainId) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Terrain getTerrainById(@RequestParam("id") final Integer terrainId) {
         return this.terrainService.getById(terrainId);
     }
     
@@ -58,8 +58,8 @@ public class TerrainController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/supprimer/{terrainId}", method = RequestMethod.GET)
-    public ResponseEntity<Void> supprimerTerrain(@RequestParam("terrainId") final Integer terrainId) {
+    @RequestMapping(value = "/supprimer/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Void> supprimerTerrain(@RequestParam("id") final Integer terrainId) {
         this.terrainService.supprimer(terrainId);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

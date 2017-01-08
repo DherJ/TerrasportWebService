@@ -35,9 +35,12 @@ Web services pour gérer les données de l'application Terrasport
 * GET http://localhost:8080/evenement/public
 * GET http://localhost:8080/evenement/prive
 * GET http://localhost:8080/evenement/sport/{sportId}
+* GET http://localhost:8080/evenement/utilisateur/{utilisateurId}
+* GET http://localhost:8080/evenement/{evenementId}
 * POST http://localhost:8080/evenement/sauvegarder&{data}
 * POST http://localhost:8080/evenement/ajouterMembre&{data}
 * POST http://localhost:8080/evenement/supprimerMembre&{data}
+* POST http://localhost:8080/evenement/supprimer/{evenementId}
 
 
 ## Participations

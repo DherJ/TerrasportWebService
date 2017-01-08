@@ -36,9 +36,19 @@ public class EvenementController {
         return this.evenementService.getEvenementsPrive();
     }
     
-    @RequestMapping(value = "/sport", method = RequestMethod.GET)
-    public List<Evenement> getAllBySport(@RequestParam("sportId") final Integer sportId) {
+    @RequestMapping(value = "/sport/{id}", method = RequestMethod.GET)
+    public List<Evenement> getAllBySport(@RequestParam("id") final Integer sportId) {
         return this.evenementService.getAllBySport(sportId);
+    }
+    
+    @RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET)
+    public List<Evenement> getAllByUtilisateur(@RequestParam("id") final Integer utilisateurId) {
+        return this.evenementService.getAllByUtilisateur(utilisateurId);
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public Evenement getById(@RequestParam("id") final Integer evenementId) {
+        return this.evenementService.getById(evenementId);
     }
     
     @RequestMapping(value = "/sauvegarder", method = RequestMethod.POST)
@@ -59,8 +69,8 @@ public class EvenementController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/supprimer/{evenementId}", method = RequestMethod.POST)
-    public ResponseEntity<Void> supprimerTerrain(@RequestParam("sportId") final Integer evenementId) {
+    @RequestMapping(value = "/supprimer/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Void> supprimerTerrain(@RequestParam("id") final Integer evenementId) {
         this.evenementService.supprimer(evenementId);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

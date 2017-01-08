@@ -50,6 +50,11 @@
 		WHERE evenement_sport_id = #{sportId}
 	</select>
 	
+	<select id="getAllByUtilisateur" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+		WHERE evenement_user_id = #{utilisateurId}
+	</select>
+	
 	<select id="getById" resultMap="Evenement_ResultMap_Complet">
 		<include refid="select_Les_Evenements" />
 		WHERE evenement_id = #{evenementId}

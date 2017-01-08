@@ -26,28 +26,28 @@ public class DemandeParticipationController {
         return this.demandeParticipationService.getAll();
     }
     
-    @RequestMapping(value = "/all/evenement", method = RequestMethod.GET)
-    public List<DemandeParticipation> getAllParticipationsPourEvenement(@RequestParam("evenementId") final Integer evenementId) {
+    @RequestMapping(value = "/all/evenement/{id}", method = RequestMethod.GET)
+    public List<DemandeParticipation> getAllParticipationsPourEvenement(@RequestParam("id") final Integer evenementId) {
         return this.demandeParticipationService.getAllPourEvenement(evenementId);
     }
     
-    @RequestMapping(value = "/all/evenement/{evenementId}/attente", method = RequestMethod.GET)
-    public List<DemandeParticipation> getAllParticipationsEnAttentePourEvenement(@RequestParam("evenementId") final Integer evenementId) {
+    @RequestMapping(value = "/all/evenement/{id}/attente", method = RequestMethod.GET)
+    public List<DemandeParticipation> getAllParticipationsEnAttentePourEvenement(@RequestParam("id") final Integer evenementId) {
         return this.demandeParticipationService.getAllEnAttentePourEvenement(evenementId);
     }
     
-    @RequestMapping(value = "/all/evenement/{evenementId}/validee", method = RequestMethod.GET)
-    public List<DemandeParticipation> getAllParticipationsValideePourEvenement(@RequestParam("evenementId") final Integer evenementId) {
+    @RequestMapping(value = "/all/evenement/{id}/validee", method = RequestMethod.GET)
+    public List<DemandeParticipation> getAllParticipationsValideePourEvenement(@RequestParam("id") final Integer evenementId) {
         return this.demandeParticipationService.getAllValideePourEvenement(evenementId);
     }
     
-    @RequestMapping(value = "/all/utilisateur", method = RequestMethod.GET)
-    public List<DemandeParticipation> getAllParticipationsPourUtilisateur(@RequestParam("utilisateurId") final Integer utilisateurId) {
+    @RequestMapping(value = "/all/utilisateur/{id}", method = RequestMethod.GET)
+    public List<DemandeParticipation> getAllParticipationsPourUtilisateur(@RequestParam("id") final Integer utilisateurId) {
         return this.demandeParticipationService.getAllPourUtilisateur(utilisateurId);
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public DemandeParticipation getDemandeParticipationById(@RequestParam("demandeParticipationId") final Integer demandeParticipationId) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public DemandeParticipation getDemandeParticipationById(@RequestParam("id") final Integer demandeParticipationId) {
         return this.demandeParticipationService.getById(demandeParticipationId);
     }
     

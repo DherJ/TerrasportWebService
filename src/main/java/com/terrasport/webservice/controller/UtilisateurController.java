@@ -26,8 +26,8 @@ public class UtilisateurController {
         return this.utilisateurService.getAll();
     }
     
-    @RequestMapping(value = "/{utilisateurId}", method = RequestMethod.GET)
-    public Utilisateur getUtilisateurById(@RequestParam("utilisateurId") final Integer utilisateurId) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Utilisateur getUtilisateurById(@RequestParam("id") final Integer utilisateurId) {
         return this.utilisateurService.getById(utilisateurId);
     }
     

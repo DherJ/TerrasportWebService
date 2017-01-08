@@ -36,6 +36,16 @@ public class EvenementServiceImpl implements EvenementService {
 	}
 
 	@Override
+	public List<Evenement> getAllByUtilisateur(Integer utilisateurId) {
+		return this.evenementDao.getAllByUtilisateur(utilisateurId);
+	}
+	
+	@Override
+	public Evenement getById(Integer evenementId) {
+		return this.evenementDao.getById(evenementId);
+	}
+	
+	@Override
 	public void sauvegarder(Evenement evenement) {
 		this.evenementDao.sauvegarder(evenement);
 	}

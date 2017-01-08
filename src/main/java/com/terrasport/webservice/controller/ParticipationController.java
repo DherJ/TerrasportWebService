@@ -26,18 +26,18 @@ public class ParticipationController {
         return this.participationService.getAll();
     }
     
-    @RequestMapping(value = "/all/evenement", method = RequestMethod.GET)
-    public List<Participation> getAllParticipationsPourEvenements(@RequestParam("evenementId") final Integer evenementId) {
+    @RequestMapping(value = "/all/evenement/{id}", method = RequestMethod.GET)
+    public List<Participation> getAllParticipationsPourEvenements(@RequestParam("id") final Integer evenementId) {
         return this.participationService.getAllPourEvenement(evenementId);
     }
     
-    @RequestMapping(value = "/all/utilisateur", method = RequestMethod.GET)
-    public List<Participation> getAllParticipationsPourUtilisateur(@RequestParam("utilisateurId") final Integer utilisateurId) {
+    @RequestMapping(value = "/all/utilisateur/{id}", method = RequestMethod.GET)
+    public List<Participation> getAllParticipationsPourUtilisateur(@RequestParam("id") final Integer utilisateurId) {
         return this.participationService.getAllPourUtilisateur(utilisateurId);
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public Participation getParticipationById(@RequestParam("participationId") final Integer participationId) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Participation getParticipationById(@RequestParam("id") final Integer participationId) {
         return this.participationService.getById(participationId);
     }
     

@@ -16,6 +16,8 @@ public interface EvenementDao {
 	
 	public List<Evenement> getAllBySport(@Param("sportId") final Integer sportId);
 	
+	public List<Evenement> getAllByUtilisateur(@Param("utilisateurId") final Integer utilisateurId);
+	
 	public Evenement getById(@Param("evenementId") final Integer evenementId);
 	
 	public void sauvegarder(@Param("evenement") final Evenement evenement);
@@ -23,5 +25,5 @@ public interface EvenementDao {
 	public void modifierNbPlacesRestantes(@Param("evenement") final Evenement evenement);
 	
 	public void supprimer(@Param("evenement") final Integer evenementId);
-	
+
 }
