@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.terrasport.webservice.core.model.Participation;
@@ -27,17 +27,17 @@ public class ParticipationController {
     }
     
     @RequestMapping(value = "/all/evenement/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Participation> getAllParticipationsPourEvenements(@RequestParam("id") final Integer evenementId) {
+    public List<Participation> getAllParticipationsPourEvenements(@PathVariable("id") final Integer evenementId) {
         return this.participationService.getAllPourEvenement(evenementId);
     }
     
     @RequestMapping(value = "/all/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Participation> getAllParticipationsPourUtilisateur(@RequestParam("id") final Integer utilisateurId) {
+    public List<Participation> getAllParticipationsPourUtilisateur(@PathVariable("id") final Integer utilisateurId) {
         return this.participationService.getAllPourUtilisateur(utilisateurId);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")
-    public Participation getParticipationById(@RequestParam("id") final Integer participationId) {
+    public Participation getParticipationById(@PathVariable("id") final Integer participationId) {
         return this.participationService.getById(participationId);
     }
     

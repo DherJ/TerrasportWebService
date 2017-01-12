@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.terrasport.webservice.core.model.Evenement;
@@ -37,17 +37,17 @@ public class EvenementController {
     }
     
     @RequestMapping(value = "/sport/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getAllBySport(@RequestParam("id") final Integer sportId) {
+    public List<Evenement> getAllBySport(@PathVariable("id") final Integer sportId) {
         return this.evenementService.getAllBySport(sportId);
     }
     
     @RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getAllByUtilisateur(@RequestParam("id") final Integer utilisateurId) {
+    public List<Evenement> getAllByUtilisateur(@PathVariable("id") final Integer utilisateurId) {
         return this.evenementService.getAllByUtilisateur(utilisateurId);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    public Evenement getById(@RequestParam("id") final Integer evenementId) {
+    public Evenement getById(@PathVariable("id") final Integer evenementId) {
         return this.evenementService.getById(evenementId);
     }
     
@@ -70,7 +70,7 @@ public class EvenementController {
     }
     
     @RequestMapping(value = "/supprimer/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Void> supprimerTerrain(@RequestParam("id") final Integer evenementId) {
+    public ResponseEntity<Void> supprimerTerrain(@PathVariable("id") final Integer evenementId) {
         this.evenementService.supprimer(evenementId);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
