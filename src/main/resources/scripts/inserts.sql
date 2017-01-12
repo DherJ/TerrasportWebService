@@ -44,15 +44,6 @@ INSERT INTO public.niveau(
     VALUES (3, 'Confirmé');
     
     
---   SEXE --
-INSERT INTO public.sexe(
-            sexe_id, sexe_libelle)
-    VALUES (1, 'Homme');
-
-INSERT INTO public.sexe(
-            sexe_id, sexe_libelle)
-    VALUES (2, 'Femme');
-    
     
 --   UTILISATEURS --
 INSERT INTO public.utilisateurs(

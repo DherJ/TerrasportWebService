@@ -8,7 +8,7 @@ CREATE TABLE public.utilisateurs
   user_age integer,
   user_email character varying,
   user_sexe character varying,
-  CONSTRAINT user_pk PRIMARY KEY (user_id),
+  CONSTRAINT user_pk PRIMARY KEY (user_id)
 )
 WITH (
   OIDS=FALSE
