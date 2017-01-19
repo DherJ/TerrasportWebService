@@ -1,9 +1,15 @@
 package com.terrasport.webservice.core.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6001549075389454072L;
+	
 	private Integer id;
 	private String nom;
 	private String prenom;

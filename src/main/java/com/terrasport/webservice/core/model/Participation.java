@@ -1,9 +1,15 @@
 package com.terrasport.webservice.core.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Participation {
+public class Participation implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1032735414975938181L;
+	
 	private Integer id;
 	private Utilisateur utilisateur;
 	private Evenement evenement;

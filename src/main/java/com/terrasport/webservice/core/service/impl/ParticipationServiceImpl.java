@@ -27,7 +27,6 @@ public class ParticipationServiceImpl implements ParticipationService {
 
 	@Override
 	public List<Participation> getAllPourUtilisateur(Integer userId) {
-		// TODO Auto-generated method stub
 		return this.participationDao.getAllPourUtilisateur(userId);
 	}
 
@@ -39,5 +38,10 @@ public class ParticipationServiceImpl implements ParticipationService {
 	@Override
 	public void sauvegarder(Participation participation) {
 		this.participationDao.sauvegarder(participation);
+	}
+
+	@Override
+	public List<Participation> getParticipationsAVenir(Integer utilisateurId) {
+		return this.participationDao.getParticipationsAVenir(utilisateurId);
 	}
 }

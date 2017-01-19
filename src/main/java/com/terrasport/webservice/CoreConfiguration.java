@@ -46,8 +46,4 @@ public class CoreConfiguration {
     public DataSourceTransactionManager transactionManager() {
         return new DataSourceTransactionManager( this.dataSource() );
     }
-
-//    public static void main( final String[] args ) {
-//        // NE PAS SUPPRIMER A CAUSE DE MAVEN
-//    }
 }

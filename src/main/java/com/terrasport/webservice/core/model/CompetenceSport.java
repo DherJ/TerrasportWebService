@@ -1,7 +1,14 @@
 package com.terrasport.webservice.core.model;
 
-public class CompetenceSport {
+import java.io.Serializable;
 
+public class CompetenceSport implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6130578106298360271L;
+	
 	private Sport sport;
 	private Niveau niveau;
 	

@@ -14,7 +14,10 @@ public interface ParticipationDao {
 	
 	public List<Participation> getAllPourUtilisateur(@Param("utilisateurId") final Integer userId);
 	
+	public List<Participation> getParticipationsAVenir(@Param("utilisateurId") final Integer utilisateurId);
+	
 	public Participation getById(@Param("participationId") final Integer participationId);
 	
 	public void sauvegarder(@Param("participation") final Participation participation);
+
 }

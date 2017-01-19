@@ -1,7 +1,14 @@
 package com.terrasport.webservice.core.model;
 
-public class Etat {
+import java.io.Serializable;
 
+public class Etat implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -84913273761951510L;
+	
 	private Integer id;
 	private String libelle;
 	

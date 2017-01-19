@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>terrasport</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Web service pour Terrasport</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

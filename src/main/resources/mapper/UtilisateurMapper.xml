@@ -63,7 +63,7 @@
 		#{user.login},
 		#{user.password},
 		#{user.age},
-		#{user.sexe} );
+		#{user.sexe} )
 	</insert>
 
 	<update id="modifier" parameterType="com.terrasport.webservice.core.model.Utilisateur">
@@ -72,7 +72,7 @@
 		user_prenom = #{user.prenom}
 		user_email = #{user.email}
 		user_password = #{user.password}
-		WHERE user_id = #{user.id};
+		WHERE user_id = #{user.id}
 	</update>
 
 </mapper>

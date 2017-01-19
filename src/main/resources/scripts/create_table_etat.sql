@@ -4,12 +4,8 @@
 
 CREATE TABLE public.etat
 (
-  etat_id integer NOT NULL,
-  etat_libelle character varying,
-  CONSTRAINT etat_pk PRIMARY KEY (etat_id)
-)
-WITH (
-  OIDS=FALSE
+  etat_id SERIAL PRIMARY KEY,
+  etat_libelle character varying
 );
 ALTER TABLE public.etat
   OWNER TO postgres;

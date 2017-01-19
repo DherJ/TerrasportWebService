@@ -1,7 +1,14 @@
 package com.terrasport.webservice.core.model;
 
-public class Sport {
+import java.io.Serializable;
 
+public class Sport implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1477152149388562396L;
+	
 	private Integer id;
 	private String libelle;
 	

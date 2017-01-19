@@ -4,10 +4,9 @@
 
 CREATE TABLE public.competence_sport
 (
-  competence_user_id integer NOT NULL,
+  competence_user_id SERIAL PRIMARY KEY,
   competence_type_sport_id integer NOT NULL,
   competence_niveau_id integer NOT NULL,
-  CONSTRAINT competence_pk PRIMARY KEY (competence_user_id, competence_type_sport_id, competence_niveau_id),
   CONSTRAINT competence_niveau_fk FOREIGN KEY (competence_niveau_id)
       REFERENCES public.niveau (niveau_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,

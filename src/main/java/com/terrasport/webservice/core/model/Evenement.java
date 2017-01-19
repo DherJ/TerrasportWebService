@@ -1,9 +1,14 @@
 package com.terrasport.webservice.core.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Evenement {
+public class Evenement implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4708394488333785885L;
 	private Integer id;
 	private boolean prive;
 	private Integer nbPlaces;

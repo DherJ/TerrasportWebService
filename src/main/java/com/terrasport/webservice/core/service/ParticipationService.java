@@ -12,7 +12,10 @@ public interface ParticipationService {
 	
 	public List<Participation> getAllPourUtilisateur(final Integer userId);
 	
+	public List<Participation> getParticipationsAVenir(Integer utilisateurId);
+	
 	public Participation getById(final Integer participationId);
 	
 	public void sauvegarder(final Participation participation);
+
 }

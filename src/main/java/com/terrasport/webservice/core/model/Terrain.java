@@ -1,7 +1,14 @@
 package com.terrasport.webservice.core.model;
 
-public class Terrain {
+import java.io.Serializable;
 
+public class Terrain implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3018590563847690628L;
+	
 	private Integer id;
 	private String latitude;
 	private String longitude;

@@ -4,9 +4,8 @@
 
 CREATE TABLE public.niveau
 (
-  niveau_id integer NOT NULL,
-  niveau_libelle character varying,
-  CONSTRAINT niveau_pk PRIMARY KEY (niveau_id)
+  niveau_id SERIAL PRIMARY KEY,
+  niveau_libelle character varying
 )
 WITH (
   OIDS=FALSE
