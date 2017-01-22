@@ -13,6 +13,7 @@
 		<result property="prive" column="evenement_prive" />
 		<result property="nbPlaces" column="evenement_nb_participants" />
 		<result property="nbPlacesRestantes" column="evenement_nb_places_restantes" />
+		<result property="date" column="evenement_date" />
 		<association property="sport" column="evenement_sport_id" javaType="com.terrasport.webservice.core.model.Sport" select="com.terrasport.webservice.core.dao.SportDao.getById"/>
 		<association property="niveauCible" column="evenement_niveau_id" javaType="com.terrasport.webservice.core.model.Niveau" select="com.terrasport.webservice.core.dao.NiveauDao.getById"/>
 		<association property="terrain" column="evenement_terrain_id" javaType="com.terrasport.webservice.core.model.Terrain" select="com.terrasport.webservice.core.dao.TerrainDao.getById"/>
@@ -24,6 +25,7 @@
 		evenement_prive,
 		evenement_nb_participants,
 		evenement_nb_places_restantes,
+		evenement_date,
 		evenement_sport_id,
 		evenement_niveau_id,
 		evenement_terrain_id,
@@ -48,6 +50,12 @@
 	<select id="getAllBySport" resultMap="Evenement_ResultMap_Complet">
 		<include refid="select_Les_Evenements" />
 		WHERE evenement_sport_id = #{sportId}
+	</select>
+	
+	<select id="getAllAVenirByUtilisateur" resultMap="Evenement_ResultMap_Complet">
+		<include refid="select_Les_Evenements" />
+		WHERE evenement_user_id = #{utilisateurId}
+		AND CURRENT_TIMESTAMP > evenement_date 
 	</select>
 	
 	<select id="getAllByUtilisateur" resultMap="Evenement_ResultMap_Complet">

@@ -1,7 +1,5 @@
 package com.terrasport.webservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.terrasport.webservice.core.event.AllTerrainEvent;
 import com.terrasport.webservice.core.model.Terrain;
 import com.terrasport.webservice.core.service.TerrainService;
 
@@ -22,23 +21,23 @@ public class TerrainController {
 	private TerrainService terrainService;
 	
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
-    public List<Terrain> getAllTerrains() {
-        return this.terrainService.getAll();
+    public AllTerrainEvent getAllTerrains() {
+        return new AllTerrainEvent(this.terrainService.getAll());
     }
     
     @RequestMapping(value = "/public", method = RequestMethod.GET, produces="application/json")
-    public List<Terrain> getAllTerrainsPublic() {
-        return this.terrainService.getAllPublic();
+    public AllTerrainEvent getAllTerrainsPublic() {
+        return new AllTerrainEvent(this.terrainService.getAllPublic());
     }
     
     @RequestMapping(value = "/prive", method = RequestMethod.GET, produces="application/json")
-    public List<Terrain> getAllTerrainsPrive() {
-        return this.terrainService.getAllPrive();
+    public AllTerrainEvent getAllTerrainsPrive() {
+        return new AllTerrainEvent(this.terrainService.getAllPrive());
     }
     
     @RequestMapping(value= "/sport/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Terrain> getAllTerrainsBySport(@PathVariable("id") final Integer sportId) {
-        return this.terrainService.getAllByTypeSport(sportId);
+    public AllTerrainEvent getAllTerrainsBySport(@PathVariable("id") final Integer sportId) {
+        return new AllTerrainEvent(this.terrainService.getAllByTypeSport(sportId));
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")

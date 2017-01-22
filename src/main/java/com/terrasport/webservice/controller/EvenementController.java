@@ -1,7 +1,5 @@
 package com.terrasport.webservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.terrasport.webservice.core.event.AllEvenementEvent;
 import com.terrasport.webservice.core.model.Evenement;
 import com.terrasport.webservice.core.service.EvenementService;
 
@@ -22,27 +21,32 @@ public class EvenementController {
 	private EvenementService evenementService;
 	
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getAllUtilisateur() {
+    public AllEvenementEvent getAllUtilisateur() {
         return this.evenementService.getAll();
     }
     
     @RequestMapping(value = "/public", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getEvenementsPublic() {
+    public AllEvenementEvent getEvenementsPublic() {
         return this.evenementService.getEvenementsPublic();
     }
     
     @RequestMapping(value = "/prive", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getEvenementsPrive() {
+    public AllEvenementEvent getEvenementsPrive() {
         return this.evenementService.getEvenementsPrive();
     }
     
     @RequestMapping(value = "/sport/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getAllBySport(@PathVariable("id") final Integer sportId) {
+    public AllEvenementEvent getAllBySport(@PathVariable("id") final Integer sportId) {
         return this.evenementService.getAllBySport(sportId);
     }
     
+    @RequestMapping(value = "/all-a-venir/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
+    public AllEvenementEvent getAllAVenirByUtilisateur(@PathVariable("id") final Integer utilisateurId) {
+        return this.evenementService.getAllAVenirByUtilisateur(utilisateurId);
+    }
+    
     @RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<Evenement> getAllByUtilisateur(@PathVariable("id") final Integer utilisateurId) {
+    public AllEvenementEvent getAllByUtilisateur(@PathVariable("id") final Integer utilisateurId) {
         return this.evenementService.getAllByUtilisateur(utilisateurId);
     }
     

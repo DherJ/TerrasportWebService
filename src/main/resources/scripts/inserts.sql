@@ -104,20 +104,20 @@ INSERT INTO public.terrains(
 INSERT INTO public.evenements(
             evenement_terrain_id, evenement_sport_id, evenement_user_id, 
             evenement_niveau_id, evenement_prive, evenement_nb_participants, 
-            evenement_nb_places_restantes)
-    VALUES (1, 1, 1,  1, true, 11, 11);
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (1, 1, 1,  1, true, 11, 11, CURRENT_TIMESTAMP);
             
 INSERT INTO public.evenements(
             evenement_terrain_id, evenement_sport_id, evenement_user_id, 
             evenement_niveau_id, evenement_prive, evenement_nb_participants, 
-            evenement_nb_places_restantes)
-    VALUES (2, 2, 2, 1, false, 11, 3);
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (2, 2, 2, 1, false, 11, 3, CURRENT_TIMESTAMP);
             
 INSERT INTO public.evenements(
             evenement_terrain_id, evenement_sport_id, evenement_user_id, 
             evenement_niveau_id, evenement_prive, evenement_nb_participants, 
-            evenement_nb_places_restantes)
-    VALUES (3, 3, 3, 1, true, 11, 8);
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (3, 3, 3, 1, true, 11, 8, CURRENT_TIMESTAMP);
 
             
 --   DEMANDES PARTICIPATIONS -- 

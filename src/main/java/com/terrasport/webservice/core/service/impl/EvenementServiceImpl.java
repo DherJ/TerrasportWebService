@@ -1,11 +1,10 @@
 package com.terrasport.webservice.core.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.terrasport.webservice.core.dao.EvenementDao;
+import com.terrasport.webservice.core.event.AllEvenementEvent;
 import com.terrasport.webservice.core.model.Evenement;
 import com.terrasport.webservice.core.service.EvenementService;
 
@@ -16,28 +15,33 @@ public class EvenementServiceImpl implements EvenementService {
 	private EvenementDao evenementDao;
 
 	@Override
-	public List<Evenement> getAll() {
-		return this.evenementDao.getAll();
+	public AllEvenementEvent getAll() {
+		return new AllEvenementEvent(this.evenementDao.getAll());
 	}
 
 	@Override
-	public List<Evenement> getEvenementsPublic() {
-		return this.evenementDao.getEvenementsPublic();
+	public AllEvenementEvent getEvenementsPublic() {
+		return new AllEvenementEvent(this.evenementDao.getEvenementsPublic());
 	}
 
 	@Override
-	public List<Evenement> getEvenementsPrive() {
-		return this.evenementDao.getEvenementsPrive();
+	public AllEvenementEvent getEvenementsPrive() {
+		return new AllEvenementEvent(this.evenementDao.getEvenementsPrive());
 	}
 
 	@Override
-	public List<Evenement> getAllBySport(Integer sportId) {
-		return this.evenementDao.getAllBySport(sportId);
+	public AllEvenementEvent getAllBySport(Integer sportId) {
+		return new AllEvenementEvent(this.evenementDao.getAllBySport(sportId));
 	}
 
 	@Override
-	public List<Evenement> getAllByUtilisateur(Integer utilisateurId) {
-		return this.evenementDao.getAllByUtilisateur(utilisateurId);
+	public AllEvenementEvent getAllAVenirByUtilisateur(Integer utilisateurId) {
+		return new AllEvenementEvent(this.evenementDao.getAllAVenirByUtilisateur(utilisateurId));
+	}
+	
+	@Override
+	public AllEvenementEvent getAllByUtilisateur(Integer utilisateurId) {
+		return new AllEvenementEvent(this.evenementDao.getAllByUtilisateur(utilisateurId));
 	}
 	
 	@Override

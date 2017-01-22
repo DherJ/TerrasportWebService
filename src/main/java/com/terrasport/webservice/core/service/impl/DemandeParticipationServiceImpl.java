@@ -1,11 +1,10 @@
 package com.terrasport.webservice.core.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.terrasport.webservice.core.dao.DemandeParticipationDao;
+import com.terrasport.webservice.core.event.AllDemandeParticipationEvent;
 import com.terrasport.webservice.core.model.DemandeParticipation;
 import com.terrasport.webservice.core.service.DemandeParticipationService;
 
@@ -16,28 +15,28 @@ public class DemandeParticipationServiceImpl implements DemandeParticipationServ
 	private DemandeParticipationDao demandeParticipationDao;
 
 	@Override
-	public List<DemandeParticipation> getAll() {
-		return this.demandeParticipationDao.getAll();
+	public AllDemandeParticipationEvent getAll() {
+		return new AllDemandeParticipationEvent(this.demandeParticipationDao.getAll());
 	}
 
 	@Override
-	public List<DemandeParticipation> getAllPourEvenement(Integer evenementId) {
-		return this.demandeParticipationDao.getAllPourEvenement(evenementId);
+	public AllDemandeParticipationEvent getAllPourEvenement(Integer evenementId) {
+		return new AllDemandeParticipationEvent(this.demandeParticipationDao.getAllPourEvenement(evenementId));
 	}
 
 	@Override
-	public List<DemandeParticipation> getAllEnAttentePourEvenement(Integer evenementId) {
-		return this.demandeParticipationDao.getAllEnAttentePourEvenement(evenementId);
+	public AllDemandeParticipationEvent getAllEnAttentePourEvenement(Integer evenementId) {
+		return new AllDemandeParticipationEvent(this.demandeParticipationDao.getAllEnAttentePourEvenement(evenementId));
 	}
 
 	@Override
-	public List<DemandeParticipation> getAllValideePourEvenement(Integer evenementId) {
-		return this.demandeParticipationDao.getAllValideePourEvenement(evenementId);
+	public AllDemandeParticipationEvent getAllValideePourEvenement(Integer evenementId) {
+		return new AllDemandeParticipationEvent(this.demandeParticipationDao.getAllValideePourEvenement(evenementId));
 	}
 
 	@Override
-	public List<DemandeParticipation> getAllPourUtilisateur(Integer userId) {
-		return this.demandeParticipationDao.getAllPourUtilisateur(userId);
+	public AllDemandeParticipationEvent getAllPourUtilisateur(Integer userId) {
+		return new AllDemandeParticipationEvent(this.demandeParticipationDao.getAllPourUtilisateur(userId));
 	}
 
 	@Override

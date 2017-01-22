@@ -1,7 +1,5 @@
 package com.terrasport.webservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.terrasport.webservice.core.event.AllDemandeParticipationEvent;
 import com.terrasport.webservice.core.model.DemandeParticipation;
 import com.terrasport.webservice.core.service.DemandeParticipationService;
 
@@ -22,27 +21,27 @@ public class DemandeParticipationController {
 	private DemandeParticipationService demandeParticipationService;
 	
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
-    public List<DemandeParticipation> getAllDemandeParticipation() {
+    public AllDemandeParticipationEvent getAllDemandeParticipation() {
         return this.demandeParticipationService.getAll();
     }
     
     @RequestMapping(value = "/all/evenement/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<DemandeParticipation> getAllParticipationsPourEvenement(@PathVariable("id") final Integer evenementId) {
+    public AllDemandeParticipationEvent getAllParticipationsPourEvenement(@PathVariable("id") final Integer evenementId) {
         return this.demandeParticipationService.getAllPourEvenement(evenementId);
     }
     
     @RequestMapping(value = "/all/evenement/{id}/attente", method = RequestMethod.GET, produces="application/json")
-    public List<DemandeParticipation> getAllParticipationsEnAttentePourEvenement(@PathVariable("id") final Integer evenementId) {
+    public AllDemandeParticipationEvent getAllParticipationsEnAttentePourEvenement(@PathVariable("id") final Integer evenementId) {
         return this.demandeParticipationService.getAllEnAttentePourEvenement(evenementId);
     }
     
     @RequestMapping(value = "/all/evenement/{id}/validee", method = RequestMethod.GET, produces="application/json")
-    public List<DemandeParticipation> getAllParticipationsValideePourEvenement(@PathVariable("id") final Integer evenementId) {
+    public AllDemandeParticipationEvent getAllParticipationsValideePourEvenement(@PathVariable("id") final Integer evenementId) {
         return this.demandeParticipationService.getAllValideePourEvenement(evenementId);
     }
     
     @RequestMapping(value = "/all/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
-    public List<DemandeParticipation> getAllParticipationsPourUtilisateur(@PathVariable("id") final Integer utilisateurId) {
+    public AllDemandeParticipationEvent getAllParticipationsPourUtilisateur(@PathVariable("id") final Integer utilisateurId) {
         return this.demandeParticipationService.getAllPourUtilisateur(utilisateurId);
     }
     

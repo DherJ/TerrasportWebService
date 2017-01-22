@@ -1,20 +1,19 @@
 package com.terrasport.webservice.core.service;
 
-import java.util.List;
-
+import com.terrasport.webservice.core.event.AllDemandeParticipationEvent;
 import com.terrasport.webservice.core.model.DemandeParticipation;
 
 public interface DemandeParticipationService {
 
-public List<DemandeParticipation> getAll();
+public AllDemandeParticipationEvent getAll();
 	
-	public List<DemandeParticipation> getAllPourEvenement(final Integer evenementId);
+	public AllDemandeParticipationEvent getAllPourEvenement(final Integer evenementId);
 	
-	public List<DemandeParticipation> getAllEnAttentePourEvenement(final Integer evenementId);
+	public AllDemandeParticipationEvent getAllEnAttentePourEvenement(final Integer evenementId);
 	
-	public List<DemandeParticipation> getAllValideePourEvenement(final Integer evenementId);
+	public AllDemandeParticipationEvent getAllValideePourEvenement(final Integer evenementId);
 	
-	public List<DemandeParticipation> getAllPourUtilisateur(final Integer userId);
+	public AllDemandeParticipationEvent getAllPourUtilisateur(final Integer userId);
 	
 	public DemandeParticipation getById(final Integer demandeParticipationId);
 	

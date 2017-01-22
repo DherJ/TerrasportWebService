@@ -2,6 +2,7 @@ package com.terrasport.webservice.core.service;
 
 import java.util.List;
 
+import com.terrasport.webservice.core.event.AllParticipationEvent;
 import com.terrasport.webservice.core.model.Participation;
 
 public interface ParticipationService {
@@ -12,7 +13,7 @@ public interface ParticipationService {
 	
 	public List<Participation> getAllPourUtilisateur(final Integer userId);
 	
-	public List<Participation> getParticipationsAVenir(Integer utilisateurId);
+	public AllParticipationEvent getParticipationsAVenir(Integer utilisateurId);
 	
 	public Participation getById(final Integer participationId);
 	

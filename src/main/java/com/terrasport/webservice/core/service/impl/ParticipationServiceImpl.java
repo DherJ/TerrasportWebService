@@ -1,11 +1,13 @@
 package com.terrasport.webservice.core.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.terrasport.webservice.core.dao.ParticipationDao;
+import com.terrasport.webservice.core.event.AllParticipationEvent;
 import com.terrasport.webservice.core.model.Participation;
 import com.terrasport.webservice.core.service.ParticipationService;
 
@@ -41,7 +43,11 @@ public class ParticipationServiceImpl implements ParticipationService {
 	}
 
 	@Override
-	public List<Participation> getParticipationsAVenir(Integer utilisateurId) {
-		return this.participationDao.getParticipationsAVenir(utilisateurId);
+	public AllParticipationEvent getParticipationsAVenir(Integer utilisateurId) {
+		List<Participation> participations = this.participationDao.getParticipationsAVenir(utilisateurId);
+		if(participations == null) {
+			participations = new ArrayList<Participation>();
+		}
+		return new AllParticipationEvent(participations);
 	}
 }

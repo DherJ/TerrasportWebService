@@ -1,6 +1,7 @@
 package com.terrasport.webservice.core.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Evenement implements Serializable {
@@ -13,6 +14,7 @@ public class Evenement implements Serializable {
 	private boolean prive;
 	private Integer nbPlaces;
 	private Integer nbPlacesRestantes;
+	private Timestamp date;
 	private Terrain terrain;
 	private Sport sport;
 	private Niveau niveauCible;
@@ -43,6 +45,12 @@ public class Evenement implements Serializable {
 	}
 	public void setNbPlacesRestantes(Integer nbPlacesRestantes) {
 		this.nbPlacesRestantes = nbPlacesRestantes;
+	}
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
 	public Terrain getTerrain() {
 		return terrain;

@@ -1,7 +1,5 @@
 package com.terrasport.webservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.terrasport.webservice.core.event.AllUtilisateurEvent;
 import com.terrasport.webservice.core.model.Utilisateur;
 import com.terrasport.webservice.core.service.UtilisateurService;
 
@@ -24,8 +23,8 @@ public class UtilisateurController {
 	private UtilisateurService utilisateurService;
 	
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces="application/json")
-    public List<Utilisateur> getAllUtilisateur() {
-        return this.utilisateurService.getAll();
+    public AllUtilisateurEvent getAllUtilisateur() {
+        return new AllUtilisateurEvent(this.utilisateurService.getAll());
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")

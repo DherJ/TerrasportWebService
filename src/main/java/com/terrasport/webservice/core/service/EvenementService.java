@@ -1,20 +1,21 @@
 package com.terrasport.webservice.core.service;
 
-import java.util.List;
-
+import com.terrasport.webservice.core.event.AllEvenementEvent;
 import com.terrasport.webservice.core.model.Evenement;
 
 public interface EvenementService {
 
-	public List<Evenement> getAll();
+	public AllEvenementEvent getAll();
 	
-	public List<Evenement> getEvenementsPublic();
+	public AllEvenementEvent getEvenementsPublic();
 	
-	public List<Evenement> getEvenementsPrive();
+	public AllEvenementEvent getEvenementsPrive();
 	
-	public List<Evenement> getAllBySport(final Integer sportId);
+	public AllEvenementEvent getAllBySport(final Integer sportId);
 	
-	public List<Evenement> getAllByUtilisateur(Integer utilisateurId);
+	public AllEvenementEvent getAllByUtilisateur(Integer utilisateurId);
+	
+	public AllEvenementEvent getAllAVenirByUtilisateur(Integer utilisateurId);
 	
 	public Evenement getById(Integer evenementId);
 	

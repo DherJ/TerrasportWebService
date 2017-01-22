@@ -12,6 +12,7 @@ CREATE TABLE public.evenements
   evenement_prive boolean,
   evenement_nb_participants integer,
   evenement_nb_places_restantes integer,
+  evenement_date timestamp without time zone,
   CONSTRAINT evenement_niveau_fk FOREIGN KEY (evenement_niveau_id)
       REFERENCES public.niveau (niveau_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
