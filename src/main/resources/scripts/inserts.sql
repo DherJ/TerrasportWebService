@@ -117,7 +117,7 @@ INSERT INTO public.evenements(
             evenement_terrain_id, evenement_sport_id, evenement_user_id, 
             evenement_niveau_id, evenement_prive, evenement_nb_participants, 
             evenement_nb_places_restantes, evenement_date)
-    VALUES (3, 3, 3, 1, true, 11, 8, CURRENT_TIMESTAMP);
+    VALUES (3, 3, 3, 1, true, 11, 8, CURRENT_TIMESTAMP + interval '1 week');
 
             
 --   DEMANDES PARTICIPATIONS -- 
@@ -134,7 +134,7 @@ INSERT INTO public.demandes_participations(
 INSERT INTO public.demandes_participations(
             demandes_participations_evenement_id, demandes_participations_etat_id, 
             demandes_participations_user_id, demandes_participations_date)
-    VALUES (2, 2, 3, CURRENT_TIMESTAMP);   
+    VALUES (2, 2, 3, CURRENT_TIMESTAMP + interval '1 week');   
             
 --   PARTICIPATIONS -- 
 INSERT INTO public.participations(
@@ -150,4 +150,4 @@ INSERT INTO public.participations(
 INSERT INTO public.participations(
             participations_evenement_id,
             participations_user_id, participations_date)
-    VALUES (3, 3, CURRENT_TIMESTAMP); 
+    VALUES (3, 3, CURRENT_TIMESTAMP + interval '1 week'); 

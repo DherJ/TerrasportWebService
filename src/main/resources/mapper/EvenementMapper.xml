@@ -55,7 +55,7 @@
 	<select id="getAllAVenirByUtilisateur" resultMap="Evenement_ResultMap_Complet">
 		<include refid="select_Les_Evenements" />
 		WHERE evenement_user_id = #{utilisateurId}
-		AND CURRENT_TIMESTAMP > evenement_date 
+		AND evenement_date > CURRENT_TIMESTAMP
 	</select>
 	
 	<select id="getAllByUtilisateur" resultMap="Evenement_ResultMap_Complet">

@@ -40,7 +40,7 @@
 	<select id="getParticipationsAVenir" resultMap="Participation_ResultMap_Complet">
 		<include refid="select_Les_Participations" />
 		WHERE participations_user_id = #{utilisateurId}
-		AND CURRENT_TIMESTAMP > participations_date 
+		AND participations_date > CURRENT_TIMESTAMP
 	</select>
 	
 	<select id="getById" resultMap="Participation_ResultMap_Complet">
