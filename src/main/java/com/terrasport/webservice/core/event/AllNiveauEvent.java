@@ -12,11 +12,11 @@ public class AllNiveauEvent {
 		this.niveaux = all;
 	}
 
-	public List<Niveau> getNiveaus() {
+	public List<Niveau> getNiveaux() {
 		return niveaux;
 	}
 
-	public void setNiveaus(List<Niveau> niveaux) {
+	public void setNiveaux(List<Niveau> niveaux) {
 		this.niveaux = niveaux;
 	}
 }

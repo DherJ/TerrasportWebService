@@ -77,6 +77,7 @@
 		evenement_sport_id,
 		evenement_niveau_id,
 		evenement_terrain_id,
+		evenement_date,
 		evenement_user_id)
 		VALUES ( #{evenement.prive},
 		#{evenement.nbPlaces},
@@ -84,6 +85,7 @@
 		#{evenement.sport.id},
 		#{evenement.niveauCible.id},
 		#{evenement.terrain.id},
+		#{evenement.date},
 		#{evenement.utilisateurCreateur.id} );
 	</insert>
 

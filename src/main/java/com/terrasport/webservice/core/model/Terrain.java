@@ -12,6 +12,7 @@ public class Terrain implements Serializable {
 	private Integer id;
 	private String latitude;
 	private String longitude;
+	private String nom;
 	private boolean isPublic;
 	private boolean isOccupe;
 	private Sport sport;
@@ -33,6 +34,12 @@ public class Terrain implements Serializable {
 	}
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	public boolean getIsPublic() {
 		return isPublic;

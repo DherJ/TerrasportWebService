@@ -97,6 +97,7 @@ CREATE TABLE public.terrains
   terrain_id SERIAL PRIMARY KEY,
   terrain_latitude character varying,
   terrain_longitude character varying,
+  terrain_nom character varying,
   terrain_public boolean,
   terrain_est_occupe boolean,
   terrain_type_sport_id integer,
@@ -233,7 +234,7 @@ INSERT INTO public.niveau(niveau_libelle)
     VALUES ('Débutant');
 
 INSERT INTO public.niveau(niveau_libelle)
-    VALUES ('Intermédiare');
+    VALUES ('Intermédiaire');
     
 INSERT INTO public.niveau(niveau_libelle)
     VALUES ('Confirmé');
@@ -271,94 +272,93 @@ INSERT INTO public.utilisateurs(
 -----------------Football-----------------
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.609130', '3.176946', TRUE, TRUE, 1);
+    VALUES ('50.609130', '3.176946', 'Nom1', TRUE, TRUE, 1);
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.615159', '3.100032', FALSE, FALSE, 1);
+    VALUES ('50.615159', '3.100032', 'Nom2', FALSE, FALSE, 1);
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.439613', '3.424118', TRUE, TRUE, 1);
+    VALUES ('50.439613', '3.424118', 'Nom3', TRUE, TRUE, 1);
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.348421', '3.528467', TRUE, FALSE, 1);
+    VALUES ('50.348421', '3.528467', 'Nom4', TRUE, FALSE, 1);
     
     
 -----------------Basket-----------------
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.290407', '2.737431', TRUE, TRUE, 2);
+    VALUES ('50.290407', '2.737431', 'Nom5', TRUE, TRUE, 2);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.645443', '2.737431', FALSE, FALSE, 2);
+    VALUES ('50.645443', '2.737431', 'Nom6', FALSE, FALSE, 2);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.292021', '2.742903', TRUE, TRUE, 2);
+    VALUES ('50.292021', '2.742903', 'Nom7', TRUE, TRUE, 2);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.627081', '3.135568', FALSE, TRUE, 2);
+    VALUES ('50.627081', '3.135568', 'Nom8', FALSE, TRUE, 2);
     
 
 -----------------Rugby-----------------
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.631224', '3.135958', FALSE, TRUE, 3);
+    VALUES ('50.631224', '3.135958', 'Nom8', FALSE, TRUE, 3);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.611378', '3.150182', FALSE, TRUE, 3);
+    VALUES ('50.611378', '3.150182', 'Nom9', FALSE, TRUE, 3);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.616661', '3.163175', TRUE, TRUE, 3);
+    VALUES ('50.616661', '3.163175', 'Nom10', TRUE, TRUE, 3);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.681323', '3.076493', TRUE, TRUE, 3);
+    VALUES ('50.681323', '3.076493', 'Nom11', TRUE, TRUE, 3);
    
     
 -----------------Handball-----------------
 
     
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.644097', '3.087379', FALSE, FALSE, 4);
+    VALUES ('50.644097', '3.087379', 'Nom12', FALSE, FALSE, 4);
 
 
 INSERT INTO public.terrains(
-            terrain_latitude, terrain_longitude, terrain_public, 
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.683534', '3.046738', TRUE, TRUE, 4);
+    VALUES ('50.683534', '3.046738', 'Nom13', TRUE, TRUE, 4);
     
-   
             
 --   COMPETENCE UTILISATEUR SPORT --
  INSERT INTO public.competence_sport(

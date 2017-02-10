@@ -8,6 +8,10 @@ public class AllSportEvent {
 
 	private List<Sport> sports;
 
+	public AllSportEvent(List<Sport> all) {
+		this.sports = all;
+	}
+	
 	public List<Sport> getSports() {
 		return sports;
 	}
