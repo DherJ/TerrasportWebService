@@ -14,6 +14,7 @@ public class Evenement implements Serializable {
 	private boolean prive;
 	private Integer nbPlaces;
 	private Integer nbPlacesRestantes;
+	private Integer nbParticipants;
 	private Timestamp date;
 	private Terrain terrain;
 	private Sport sport;
@@ -45,6 +46,12 @@ public class Evenement implements Serializable {
 	}
 	public void setNbPlacesRestantes(Integer nbPlacesRestantes) {
 		this.nbPlacesRestantes = nbPlacesRestantes;
+	}
+	public Integer getNbParticipants() {
+		return nbParticipants;
+	}
+	public void setNbParticipants(Integer nbParticipants) {
+		this.nbParticipants = nbParticipants;
 	}
 	public Timestamp getDate() {
 		return date;

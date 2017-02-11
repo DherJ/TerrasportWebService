@@ -11,7 +11,8 @@
 		type="com.terrasport.webservice.core.model.Evenement">
 		<id property="id" column="evenement_id" />
 		<result property="prive" column="evenement_prive" />
-		<result property="nbPlaces" column="evenement_nb_participants" />
+		<result property="nbPlaces" column="NB_PLACES" />
+		<result property="nbParticipants" column="evenement_nb_participants" />
 		<result property="nbPlacesRestantes" column="evenement_nb_places_restantes" />
 		<result property="date" column="evenement_date" />
 		<association property="sport" column="evenement_sport_id" javaType="com.terrasport.webservice.core.model.Sport" select="com.terrasport.webservice.core.dao.SportDao.getById"/>
@@ -25,6 +26,7 @@
 		evenement_prive,
 		evenement_nb_participants,
 		evenement_nb_places_restantes,
+		evenement_nb_places_restantes + evenement_nb_participants AS NB_PLACES,
 		evenement_date,
 		evenement_sport_id,
 		evenement_niveau_id,
