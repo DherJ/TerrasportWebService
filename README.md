@@ -13,10 +13,15 @@ Web services pour gérer les données de l'application Terrasport
 * GET http://localhost:8080/etat/all
 
 
+## Sport
+* GET http://localhost:8080/sport/all
+
+
 ## Utilisateur
 * GET http://localhost:8080/utilisateur/all
 * GET http://localhost:8080/utilisateur/{utilisateurId}
 * GET http://localhost:8080/utilisateur/authentification?login={login}&password={password}
+* POST http://localhost:8080/utilisateur/sauvegarder&{data}
 
 
 ## Terrain
@@ -60,5 +65,4 @@ Web services pour gérer les données de l'application Terrasport
 * GET http://localhost:8080/demande-participation/{demandeParticipationId}
 * POST http://localhost:8080/demande-participation/sauvegarder&{data}
 * POST http://localhost:8080/demande-participation/miseAjourEtatDemande&{data}
-
 

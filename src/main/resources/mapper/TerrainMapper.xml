@@ -60,11 +60,13 @@
 		terrain_longitude,
 		terrain_nom,
 		terrain_est_occupe,
+		terrain_public,
 		terrain_type_sport_id)
 		VALUES ( #{terrain.latitude},
 		#{terrain.longitude},
 		#{terrain.nom},
-		#{terrain.estOccupe},
+		#{terrain.isOccupe},
+		#{terrain.isPublic},
 		#{terrain.sport.id} );
 	</insert>
 
