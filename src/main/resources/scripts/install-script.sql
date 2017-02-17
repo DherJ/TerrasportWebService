@@ -216,6 +216,18 @@ INSERT INTO public.type_sport(type_sport_libelle)
 
 INSERT INTO public.type_sport(type_sport_libelle)
     VALUES ('Handball');
+
+INSERT INTO public.type_sport(type_sport_libelle)
+    VALUES ('Golf');    
+    
+INSERT INTO public.type_sport(type_sport_libelle)
+    VALUES ('Baseball');    
+    
+INSERT INTO public.type_sport(type_sport_libelle)
+    VALUES ('Tennis');    
+
+INSERT INTO public.type_sport(type_sport_libelle)
+    VALUES ('Volleyball');
     
     
 --   ETAT --
@@ -324,25 +336,25 @@ INSERT INTO public.terrains(
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.631224', '3.135958', 'Nom8', FALSE, TRUE, 3);
+    VALUES ('50.631224', '3.135958', 'Nom9', FALSE, TRUE, 3);
 
 
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.611378', '3.150182', 'Nom9', FALSE, TRUE, 3);
+    VALUES ('50.611378', '3.150182', 'Nom10', FALSE, TRUE, 3);
 
 
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.616661', '3.163175', 'Nom10', TRUE, TRUE, 3);
+    VALUES ('50.616661', '3.163175', 'Nom11', TRUE, TRUE, 3);
 
 
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.681323', '3.076493', 'Nom11', TRUE, TRUE, 3);
+    VALUES ('50.681323', '3.076493', 'Nom12', TRUE, TRUE, 3);
    
     
 -----------------Handball-----------------
@@ -351,15 +363,42 @@ INSERT INTO public.terrains(
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.644097', '3.087379', 'Nom12', FALSE, FALSE, 4);
+    VALUES ('50.644097', '3.087379', 'Nom13', FALSE, FALSE, 4);
 
 
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.683534', '3.046738', 'Nom13', TRUE, TRUE, 4);
+    VALUES ('50.683534', '3.046738', 'Nom14', TRUE, TRUE, 4);
+ 
     
-            
+-----------------GOLF-----------------
+
+INSERT INTO public.terrains(
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
+            terrain_est_occupe, terrain_type_sport_id)
+    VALUES ('50.689403', '3.107092', 'Practice golf', TRUE, TRUE, 5);   
+ 
+    
+-----------------VOLLEY-----------------
+    
+    
+INSERT INTO public.terrains(
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
+            terrain_est_occupe, terrain_type_sport_id)
+    VALUES ('50.139420', '3.197123', 'Volley', TRUE, TRUE, 8);     
+    
+    
+-----------------TENNIS-----------------
+    
+    
+INSERT INTO public.terrains(
+            terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
+            terrain_est_occupe, terrain_type_sport_id)
+    VALUES ('50.329459', '3.1-7456', 'Tennis', TRUE, TRUE, 7); 
+    
+       
+    
 --   COMPETENCE UTILISATEUR SPORT --
  INSERT INTO public.competence_sport(
             competence_user_id, competence_type_sport_id, competence_niveau_id)
