@@ -41,9 +41,9 @@ public class EvenementController {
         return this.evenementService.getAllBySport(sportId);
     }
     
-    @RequestMapping(value = "/all-a-venir/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")
-    public AllEvenementEvent getAllAVenirByUtilisateur(@PathVariable("id") final Integer utilisateurId) {
-        return this.evenementService.getAllAVenirByUtilisateur(utilisateurId);
+    @RequestMapping(value = "/all-a-venir", method = RequestMethod.GET, produces="application/json")
+    public AllEvenementEvent getAllAVenir() {
+        return this.evenementService.getAllAVenir();
     }
     
     @RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET, produces="application/json")

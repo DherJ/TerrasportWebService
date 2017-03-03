@@ -54,10 +54,9 @@
 		WHERE evenement_sport_id = #{sportId}
 	</select>
 	
-	<select id="getAllAVenirByUtilisateur" resultMap="Evenement_ResultMap_Complet">
+	<select id="getAllAVenir" resultMap="Evenement_ResultMap_Complet">
 		<include refid="select_Les_Evenements" />
-		WHERE evenement_user_id = #{utilisateurId}
-		AND evenement_date > CURRENT_TIMESTAMP
+		WHERE evenement_date >= CURRENT_TIMESTAMP
 	</select>
 	
 	<select id="getAllByUtilisateur" resultMap="Evenement_ResultMap_Complet">

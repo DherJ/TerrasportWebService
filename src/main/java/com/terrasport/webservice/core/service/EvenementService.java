@@ -15,7 +15,7 @@ public interface EvenementService {
 	
 	public AllEvenementEvent getAllByUtilisateur(Integer utilisateurId);
 	
-	public AllEvenementEvent getAllAVenirByUtilisateur(Integer utilisateurId);
+	public AllEvenementEvent getAllAVenir();
 	
 	public Evenement getById(Integer evenementId);
 	

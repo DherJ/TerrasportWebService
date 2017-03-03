@@ -35,8 +35,8 @@ public class EvenementServiceImpl implements EvenementService {
 	}
 
 	@Override
-	public AllEvenementEvent getAllAVenirByUtilisateur(Integer utilisateurId) {
-		return new AllEvenementEvent(this.evenementDao.getAllAVenirByUtilisateur(utilisateurId));
+	public AllEvenementEvent getAllAVenir() {
+		return new AllEvenementEvent(this.evenementDao.getAllAVenir());
 	}
 	
 	@Override

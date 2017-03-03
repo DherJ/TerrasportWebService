@@ -16,7 +16,7 @@ public interface EvenementDao {
 	
 	public List<Evenement> getAllBySport(@Param("sportId") final Integer sportId);
 	
-	public List<Evenement> getAllAVenirByUtilisateur(Integer utilisateurId);
+	public List<Evenement> getAllAVenir();
 	
 	public List<Evenement> getAllByUtilisateur(@Param("utilisateurId") final Integer utilisateurId);
 	
