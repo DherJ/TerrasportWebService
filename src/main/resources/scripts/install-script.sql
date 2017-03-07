@@ -395,7 +395,7 @@ INSERT INTO public.terrains(
 INSERT INTO public.terrains(
             terrain_latitude, terrain_longitude, terrain_nom, terrain_public, 
             terrain_est_occupe, terrain_type_sport_id)
-    VALUES ('50.329459', '3.1-7456', 'Tennis', TRUE, TRUE, 7); 
+    VALUES ('50.329459', '3.167456', 'Tennis', TRUE, TRUE, 7); 
     
        
     
@@ -426,38 +426,98 @@ INSERT INTO public.evenements(
             evenement_terrain_id, evenement_sport_id, evenement_user_id, 
             evenement_niveau_id, evenement_prive, evenement_nb_participants, 
             evenement_nb_places_restantes, evenement_date)
-    VALUES (1, 1, 1,  1, true, 11, 11, CURRENT_TIMESTAMP);
-            
-INSERT INTO public.evenements(
-            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
-            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
-            evenement_nb_places_restantes, evenement_date)
-    VALUES (2, 2, 2, 1, false, 11, 3, CURRENT_TIMESTAMP);
-            
-INSERT INTO public.evenements(
-            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
-            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
-            evenement_nb_places_restantes, evenement_date)
-    VALUES (3, 3, 3, 1, true, 11, 8, CURRENT_TIMESTAMP + interval '1 week');
+    VALUES (1, 1, 1,  1, true, 11, 11, CURRENT_TIMESTAMP + interval '1 week');
 
+INSERT INTO public.evenements(
+            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
+            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
+            evenement_nb_places_restantes, evenement_date)
+	VALUES (5, 2, 1,  1, true, 11, 11, CURRENT_TIMESTAMP);
+
+INSERT INTO public.evenements(
+            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
+            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
+            evenement_nb_places_restantes, evenement_date)
+	VALUES (9, 3, 1,  1, true, 11, 11, CURRENT_TIMESTAMP);
+    
+INSERT INTO public.evenements(
+            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
+            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (6, 2, 1, 1, false, 11, 3, CURRENT_TIMESTAMP);
             
+INSERT INTO public.evenements(
+            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
+            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (10, 3, 3, 1, true, 11, 8, CURRENT_TIMESTAMP + interval '1 week');
+
+INSERT INTO public.evenements(
+            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
+            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (11, 3, 3, 1, true, 11, 8, CURRENT_TIMESTAMP + interval '1 week');
+    
+INSERT INTO public.evenements(
+            evenement_terrain_id, evenement_sport_id, evenement_user_id, 
+            evenement_niveau_id, evenement_prive, evenement_nb_participants, 
+            evenement_nb_places_restantes, evenement_date)
+    VALUES (13, 4, 3, 1, true, 11, 8, CURRENT_TIMESTAMP + interval '1 week');
+    
+    
 --   DEMANDES PARTICIPATIONS -- 
 INSERT INTO public.demandes_participations(
             demandes_participations_evenement_id, demandes_participations_etat_id, 
             demandes_participations_user_id, demandes_participations_date)
-    VALUES (1, 1, 1, CURRENT_TIMESTAMP);
+    VALUES (1, 2, 2, CURRENT_TIMESTAMP);
 
 INSERT INTO public.demandes_participations(
             demandes_participations_evenement_id, demandes_participations_etat_id, 
             demandes_participations_user_id, demandes_participations_date)
-    VALUES (2, 2, 2, CURRENT_TIMESTAMP);
+    VALUES (1, 1, 3, CURRENT_TIMESTAMP);
+
+INSERT INTO public.demandes_participations(
+            demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (1, 1, 4, CURRENT_TIMESTAMP);
+    
+INSERT INTO public.demandes_participations(
+            demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (1, 1, 5, CURRENT_TIMESTAMP);
+
+INSERT INTO public.demandes_participations(
+            demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (5, 1, 1, CURRENT_TIMESTAMP);
+    
+INSERT INTO public.demandes_participations(
+            demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (6, 2, 1, CURRENT_TIMESTAMP);
+    
+INSERT INTO public.demandes_participations(
+            demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (7, 3, 1, CURRENT_TIMESTAMP);
+
+INSERT INTO public.demandes_participations(
+            demandes_participations_evenement_id, demandes_participations_etat_id, 
+            demandes_participations_user_id, demandes_participations_date)
+    VALUES (7, 2, 2, CURRENT_TIMESTAMP);
  
 INSERT INTO public.demandes_participations(
             demandes_participations_evenement_id, demandes_participations_etat_id, 
             demandes_participations_user_id, demandes_participations_date)
-    VALUES (2, 2, 3, CURRENT_TIMESTAMP + interval '1 week');   
-            
+    VALUES (6, 2, 3, CURRENT_TIMESTAMP + interval '1 week');   
+          
+    
 --   PARTICIPATIONS -- 
+INSERT INTO public.participations(
+            participations_evenement_id,
+            participations_user_id, participations_date)
+    VALUES (6, 1, CURRENT_TIMESTAMP);
+    
 INSERT INTO public.participations(
             participations_evenement_id,
             participations_user_id, participations_date)
