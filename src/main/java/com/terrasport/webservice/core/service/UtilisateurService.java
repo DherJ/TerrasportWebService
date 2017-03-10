@@ -15,4 +15,6 @@ public interface UtilisateurService {
 	public void sauvegarder(Utilisateur utilisateur);
 	
 	public void modifier(Utilisateur utilisateur);
+
+	public void signaler(Utilisateur utilisateur);
 }

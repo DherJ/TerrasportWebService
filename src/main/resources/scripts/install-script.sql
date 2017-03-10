@@ -53,7 +53,8 @@ CREATE TABLE public.utilisateurs
   user_password character varying,
   user_age integer,
   user_email character varying,
-  user_sexe character varying
+  user_sexe character varying,
+  user_signale boolean
 )
 WITH (
   OIDS=FALSE
@@ -256,28 +257,28 @@ INSERT INTO public.niveau(niveau_libelle)
 --   UTILISATEURS --
 INSERT INTO public.utilisateurs(
             user_nom, user_prenom, user_login, user_password, user_age, 
-            user_email, user_sexe)
-    VALUES ('nom1', 'prenom1', 'login1', 'password1', 10, 'email1@email1', 'Homme');
+            user_email, user_sexe, user_signale)
+    VALUES ('nom1', 'prenom1', 'login1', 'password1', 10, 'email1@email1', 'Homme', false);
             
 INSERT INTO public.utilisateurs(
             user_nom, user_prenom, user_login, user_password, user_age, 
-            user_email, user_sexe)
-    VALUES ('nom2', 'prenom2', 'login2', 'password2', 33, 'email2@email2', 'Homme');
+            user_email, user_sexe, user_signale)
+    VALUES ('nom2', 'prenom2', 'login2', 'password2', 33, 'email2@email2', 'Homme', false);
      
 INSERT INTO public.utilisateurs(
             user_nom, user_prenom, user_login, user_password, user_age, 
-            user_email, user_sexe)
-    VALUES ('nom3', 'prenom3', 'login3', 'password3', 54, 'email3@email3', 'Femme');
+            user_email, user_sexe, user_signale)
+    VALUES ('nom3', 'prenom3', 'login3', 'password3', 54, 'email3@email3', 'Femme', false);
            
 INSERT INTO public.utilisateurs(
             user_nom, user_prenom, user_login, user_password, user_age, 
-            user_email, user_sexe)
-    VALUES ('nom4', 'prenom4', 'login4', 'password4', 23, 'email4@email4', 'Homme');   
+            user_email, user_sexe, user_signale)
+    VALUES ('nom4', 'prenom4', 'login4', 'password4', 23, 'email4@email4', 'Homme', false);   
            
  INSERT INTO public.utilisateurs(
             user_nom, user_prenom, user_login, user_password, user_age, 
-            user_email, user_sexe)
-    VALUES ('nom5', 'prenom5', 'login5', 'password5', 19, 'email5@email5', 'Femme');
+            user_email, user_sexe, user_signale)
+    VALUES ('nom5', 'prenom5', 'login5', 'password5', 19, 'email5@email5', 'Femme', false);
            
     
 --   TERRAINS --

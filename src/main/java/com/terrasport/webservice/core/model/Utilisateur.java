@@ -18,6 +18,7 @@ public class Utilisateur implements Serializable {
 	private String login;
 	private String password;
 	private String sexe;
+	private Boolean isSignale;
 	
 	private List<CompetenceSport> competencesSport;
 	
@@ -74,5 +75,11 @@ public class Utilisateur implements Serializable {
 	}
 	public void setCompetencesSport(List<CompetenceSport> competencesSport) {
 		this.competencesSport = competencesSport;
+	}
+	public Boolean getIsSignale() {
+		return isSignale;
+	}
+	public void setIsSignale(Boolean isSignale) {
+		this.isSignale = isSignale;
 	}
 }

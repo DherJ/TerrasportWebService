@@ -87,13 +87,14 @@
 		#{evenement.niveauCible.id},
 		#{evenement.terrain.id},
 		#{evenement.date},
-		#{evenement.utilisateurCreateur.id} );
+		#{evenement.utilisateurCreateur.id} )
 	</insert>
 
 	<update id="modifierNbPlacesRestantes" parameterType="com.terrasport.webservice.core.model.Evenement">
 		UPDATE EVENEMENTS
-		SET evenement_nb_plces_restantes = #{evenement.nbPlacesRestantes},
-		WHERE evenement_id = #{evenement.id};
+		SET evenement_nb_places_restantes = #{evenement.nbPlacesRestantes},
+		evenement_nb_participants = #{evenement.nbParticipants}
+		WHERE evenement_id = #{evenement.id}
 	</update>
 	
 	<delete id="supprimer">

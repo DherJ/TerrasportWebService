@@ -8,6 +8,7 @@ CREATE TABLE public.utilisateurs
   user_age integer,
   user_email character varying,
   user_sexe character varying
+  user_signale boolean
 )
 WITH (
   OIDS=FALSE

@@ -17,4 +17,6 @@ public interface UtilisateurDao {
 	public void sauvegarder(@Param("user") final Utilisateur utilisateur);
 	
 	public void modifier(@Param("user") final Utilisateur utilisateur);
+
+	public void signaler(@Param("user") final Utilisateur utilisateur);
 }

@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.terrasport.webservice.core.dao.DemandeParticipationDao;
+import com.terrasport.webservice.core.dao.EvenementDao;
+import com.terrasport.webservice.core.dao.ParticipationDao;
 import com.terrasport.webservice.core.event.AllDemandeParticipationEvent;
 import com.terrasport.webservice.core.model.DemandeParticipation;
+import com.terrasport.webservice.core.model.Evenement;
+import com.terrasport.webservice.core.model.Participation;
 import com.terrasport.webservice.core.service.DemandeParticipationService;
 
 @Service
@@ -14,6 +18,13 @@ public class DemandeParticipationServiceImpl implements DemandeParticipationServ
 	@Autowired
 	private DemandeParticipationDao demandeParticipationDao;
 
+	@Autowired
+	private ParticipationDao participationDao;
+	
+	@Autowired
+	private EvenementDao evenementDao;
+	
+	
 	@Override
 	public AllDemandeParticipationEvent getAll() {
 		return new AllDemandeParticipationEvent(this.demandeParticipationDao.getAll());
@@ -52,6 +63,17 @@ public class DemandeParticipationServiceImpl implements DemandeParticipationServ
 	@Override
 	public void miseAjourEtatDemande(DemandeParticipation demandeParticipation) {
 		this.demandeParticipationDao.miseAjourEtatDemande(demandeParticipation);
+		if(demandeParticipation.getEtat().getId() == 2) {
+			Participation participation = new Participation();
+			participation.setEvenement(demandeParticipation.getEvenement());
+			participation.setUtilisateur(demandeParticipation.getUtilisateur());
+			participation.setDate(demandeParticipation.getEvenement().getDate());
+			this.participationDao.sauvegarder(participation);
+			Evenement evenement = demandeParticipation.getEvenement();
+			evenement.setNbPlacesRestantes(evenement.getNbPlacesRestantes() - 1);
+			evenement.setNbParticipants(evenement.getNbParticipants() + 1);
+			this.evenementDao.modifierNbPlacesRestantes(evenement);
+		}
 	}
 
 	@Override

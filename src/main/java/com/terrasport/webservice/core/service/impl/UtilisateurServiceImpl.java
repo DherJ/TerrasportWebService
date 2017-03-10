@@ -39,4 +39,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	public void modifier(Utilisateur utilisateur) {
 		this.utilisateurDao.modifier(utilisateur);
 	}
+
+	@Override
+	public void signaler(Utilisateur utilisateur) {
+		utilisateur.setIsSignale(true);
+		this.utilisateurDao.signaler(utilisateur);
+	}
 }

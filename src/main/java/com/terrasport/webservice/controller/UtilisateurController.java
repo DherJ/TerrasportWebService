@@ -43,4 +43,11 @@ public class UtilisateurController {
         this.utilisateurService.sauvegarder(utilisateur);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/signaler", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<Void> signalerUtilisateur(@RequestBody final Utilisateur utilisateur) {
+        this.utilisateurService.signaler(utilisateur);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }

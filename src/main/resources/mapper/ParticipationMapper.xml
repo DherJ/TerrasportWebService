@@ -54,9 +54,9 @@
 		(participations_date,
 		participations_evenement_id,
 		participations_user_id)
-		VALUES ( CURRENT_TIMESTAMP,
-		#{demandeParticipation.evenement.id},
-		#{demandeParticipation.utilisateur.id} );
+		VALUES ( #{participation.date},
+		#{participation.evenement.id},
+		#{participation.utilisateur.id} );
 	</insert>
 	
 </mapper>

@@ -17,6 +17,7 @@
 		<result property="login" column="user_login" />
 		<result property="password" column="user_password" />
 		<result property="sexe" column="user_sexe" />
+		<result property="isSignale" column="user_signale" />
 		<collection property="competencesSport" column="user_id" javaType="ArrayList" ofType="com.terrasport.webservice.core.model.CompetenceSport" select="com.terrasport.webservice.core.dao.CompetenceSportDao.getByUserId"/>
 	</resultMap>
 
@@ -28,7 +29,8 @@
 		user_email,
 		user_login,
 		user_password,
-		user_sexe
+		user_sexe,
+		user_signale
 		FROM UTILISATEURS
 	</sql>
 
@@ -56,14 +58,16 @@
 		user_login,
 		user_password,
 		user_age,
-		user_sexe)
+		user_sexe,
+		user_signale)
 		VALUES ( #{user.nom},
 		#{user.prenom},
 		#{user.email},
 		#{user.login},
 		#{user.password},
 		#{user.age},
-		#{user.sexe} )
+		#{user.sexe},
+		FALSE )
 	</insert>
 
 	<update id="modifier" parameterType="com.terrasport.webservice.core.model.Utilisateur">
@@ -72,6 +76,12 @@
 		user_prenom = #{user.prenom}
 		user_email = #{user.email}
 		user_password = #{user.password}
+		WHERE user_id = #{user.id}
+	</update>
+	
+	<update id="signaler" parameterType="com.terrasport.webservice.core.model.Utilisateur">
+		UPDATE UTILISATEURS
+		SET user_signale = #{user.isSignale}
 		WHERE user_id = #{user.id}
 	</update>
 
